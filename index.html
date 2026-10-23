@@ -10,6 +10,10 @@
   
   <style>
     :root {
+      /* Cor de destaque dinâmica (alterada pelos botões do tema) */
+      --primary-lilac: #8a4baf;
+      --primary-hover: #753999;
+
       /* Tema Padrão (Dark Mode do App) */
       --bg-main: #141318;
       --bg-panel: #1e1d24;
@@ -17,12 +21,6 @@
       --bg-card: #25242e;
       --text-main: #f0edf5;
       --text-muted: #9593a6;
-
-      /* Cores de Destaque */
-      --primary-lilac: #9d52cc;
-      --primary-hover: #833cb3;
-      --sage-green: #52796f;
-      --sage-light: rgba(82, 121, 111, 0.2);
 
       /* Cor do Papel de Escrita */
       --paper-bg: #f6f3eb;
@@ -86,14 +84,14 @@
     }
 
     .btn-ghost:hover {
-      background: rgba(157, 82, 204, 0.1);
+      background: rgba(138, 75, 175, 0.1);
       border-color: var(--primary-lilac);
     }
 
     .btn-primary {
       background: var(--primary-lilac);
       color: white;
-      box-shadow: 0 4px 14px rgba(157, 82, 204, 0.3);
+      box-shadow: 0 4px 14px rgba(138, 75, 175, 0.3);
     }
 
     .btn-primary:hover {
@@ -135,7 +133,7 @@
       justify-content: center;
       color: white;
       font-size: 1.2rem;
-      box-shadow: 0 4px 12px rgba(157, 82, 204, 0.3);
+      box-shadow: 0 4px 12px rgba(138, 75, 175, 0.3);
     }
 
     .hero-landing {
@@ -173,7 +171,6 @@
       flex-direction: column;
     }
 
-    /* Top Bar do App */
     .app-topbar {
       background: var(--bg-panel);
       border-bottom: 1px solid var(--bg-panel-border);
@@ -225,7 +222,6 @@
       font-size: 0.85rem;
     }
 
-    /* Título do Livro */
     .book-header-section {
       padding: 1.2rem 1.5rem 0.5rem;
     }
@@ -249,7 +245,6 @@
       color: var(--text-muted);
     }
 
-    /* Layout 3 Colunas */
     .app-grid {
       display: grid;
       grid-template-columns: 250px 1fr 300px;
@@ -265,7 +260,6 @@
       padding: 1.2rem;
     }
 
-    /* Coluna 1 - Estrutura */
     .struct-title {
       font-size: 0.7rem;
       text-transform: uppercase;
@@ -298,14 +292,13 @@
     .badge-status {
       font-size: 0.65rem;
       text-transform: uppercase;
-      background: rgba(157, 82, 204, 0.15);
+      background: rgba(138, 75, 175, 0.15);
       color: var(--primary-lilac);
       padding: 0.15rem 0.4rem;
       border-radius: 4px;
       font-weight: 600;
     }
 
-    /* Coluna 2 - Editor / Papel */
     .editor-column {
       display: flex;
       flex-direction: column;
@@ -413,7 +406,6 @@
       color: #888078;
     }
 
-    /* Coluna 3 - Configurações */
     .config-card-box {
       margin-bottom: 1rem;
     }
@@ -435,7 +427,7 @@
     }
 
     .progress-bar-fill {
-      background: linear-gradient(90deg, var(--primary-lilac), var(--sage-green));
+      background: var(--primary-lilac);
       height: 100%;
       width: 0%;
       transition: width 0.3s;
@@ -463,8 +455,42 @@
       outline: none;
     }
 
+    /* Estilos da seleção "COR DO APP" */
+    .theme-options-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .theme-chip-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-panel-border);
+      color: var(--text-main);
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .theme-chip-btn:hover, .theme-chip-btn.active {
+      border-color: var(--primary-lilac);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .color-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
     /* =============================================================
-       MODAL DE LOGIN / CADASTRO
+       MODAL DE LOGIN / CADASTRO E OLHINHO DE SENHA
     ============================================================= */
     .modal-overlay {
       position: fixed;
@@ -535,6 +561,35 @@
       border-color: var(--primary-lilac);
     }
 
+    /* Estilo do campo de senha com olhinho */
+    .password-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .password-wrapper .auth-input {
+      padding-right: 2.8rem;
+    }
+
+    .toggle-password-btn {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toggle-password-btn:hover {
+      color: var(--primary-lilac);
+    }
+
     .close-modal-btn {
       position: absolute;
       top: 15px;
@@ -562,7 +617,7 @@
         <div class="brand-logo-icon">📖</div>
         <div>
           <h1 style="font-family: var(--font-heading); font-size: 1.25rem; letter-spacing: 0.5px;">Atelier Literário</h1>
-          <span style="font-size: 0.65rem; color: var(--sage-green); font-weight: 700; letter-spacing: 1.5px;">ADA & AUTORA</span>
+          <span style="font-size: 0.65rem; color: #52796f; font-weight: 700; letter-spacing: 1.5px;">ADA & AUTORA</span>
         </div>
       </a>
 
@@ -691,7 +746,7 @@
           </div>
         </main>
 
-        <!-- Coluna 3: Configurações -->
+        <!-- Coluna 3: Configurações & Cores -->
         <aside class="panel-box">
           
           <div class="config-card-box">
@@ -743,6 +798,33 @@
             </div>
           </div>
 
+          <!-- Caixa Seleção COR DO APP -->
+          <div class="config-card-box" style="margin-top: 1.2rem; border-top: 1px solid var(--bg-panel-border); padding-top: 1rem;">
+            <h4>COR DO APP</h4>
+            
+            <div class="theme-options-grid">
+              <button class="theme-chip-btn" onclick="changeAppTheme('#c2b280')">
+                <span class="color-dot" style="background: #c2b280;"></span> Areia
+              </button>
+              <button class="theme-chip-btn" onclick="changeAppTheme('#8b3a62')">
+                <span class="color-dot" style="background: #8b3a62;"></span> Vinho
+              </button>
+              <button class="theme-chip-btn active" onclick="changeAppTheme('#8a4baf')">
+                <span class="color-dot" style="background: #8a4baf;"></span> Violeta
+              </button>
+              <button class="theme-chip-btn" onclick="changeAppTheme('#52796f')">
+                <span class="color-dot" style="background: #52796f;"></span> Floresta
+              </button>
+              <button class="theme-chip-btn" onclick="changeAppTheme('#3a86ff')">
+                <span class="color-dot" style="background: #3a86ff;"></span> Oceano
+              </button>
+            </div>
+
+            <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.8rem; line-height: 1.4;">
+              Muda a cor de destaque do app. A prévia impressa continua em preto e branco.
+            </p>
+          </div>
+
         </aside>
 
       </div>
@@ -767,7 +849,12 @@
 
         <div class="auth-field">
           <label>Sua Senha</label>
-          <input type="password" class="auth-input" id="authPassword" placeholder="••••••••" required>
+          <div class="password-wrapper">
+            <input type="password" class="auth-input" id="authPassword" placeholder="••••••••" required>
+            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()" id="togglePasswordIcon" title="Mostrar senha">
+              👁️
+            </button>
+          </div>
         </div>
 
         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem; margin-top: 0.5rem;" id="modalSubmitBtn">
@@ -788,7 +875,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-    // Quando copiares o bloco 'firebaseConfig' da secção "Geral" do Firebase, cola-o aqui:
+    // Cole aqui suas chaves reais copiadas do Firebase Console:
     const firebaseConfig = {
       apiKey: "COLE_SUA_API_KEY_AQUI",
       authDomain: "atelier-literario.firebaseapp.com",
@@ -803,10 +890,9 @@
       const app = initializeApp(firebaseConfig);
       auth = getAuth(app);
     } catch(e) {
-      console.log("Firebase ainda não configurado com as chaves reais.");
+      console.log("Firebase aguardando chaves de configuração.");
     }
 
-    // Função de submissão do login/cadastro
     window.handleAuthSubmit = async function(event) {
       event.preventDefault();
       const email = document.getElementById('authEmail').value;
@@ -821,7 +907,7 @@
             await signInWithEmailAndPassword(auth, email, password);
           }
         } catch (error) {
-          alert("Aviso: " + error.message);
+          alert("Aviso do Firebase: " + error.message);
         }
       }
 
@@ -836,6 +922,30 @@
 
   <script>
     window.isRegisterMode = false;
+
+    // Alternar visibilidade da senha (olhinho)
+    window.togglePasswordVisibility = function() {
+      const passwordInput = document.getElementById('authPassword');
+      const toggleBtn = document.getElementById('togglePasswordIcon');
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleBtn.innerText = '🙈';
+        toggleBtn.title = 'Ocultar senha';
+      } else {
+        passwordInput.type = 'password';
+        toggleBtn.innerText = '👁️';
+        toggleBtn.title = 'Mostrar senha';
+      }
+    };
+
+    // Alterar cor de destaque do app
+    window.changeAppTheme = function(colorHex) {
+      document.documentElement.style.setProperty('--primary-lilac', colorHex);
+      const buttons = document.querySelectorAll('.theme-chip-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    };
 
     // Alternar entre Landing Page e App
     window.toggleAppMode = function(isApp) {
