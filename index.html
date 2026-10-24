@@ -316,201 +316,202 @@
     .checkbox-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--text-muted); cursor: pointer; }
 
     /* ====================================================== */
-    /* ATELIER LITERÁRIO - LAYOUT PREMIUM TEMÁTICO E ORNAMENTOS */
+    /* ATELIER LITERÁRIO - LAYOUT PREMIUM TEMÁTICO REFINADO */
     /* ====================================================== */
     .paper-sheet-container{
-        width:100%;
-        position:relative;
+        width: 100%;
+        max-width: 920px;
+        margin: 20px auto;
         background: var(--paper-bg);
         color: var(--paper-text);
         font-family: var(--font-editor);
+        padding: 60px 70px;
+        border-radius: 12px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        position: relative;
     }
-    
-    /* Ornamentos invisíveis por padrão, exibidos conforme o tema */
+
+    /* Ornamentos dos temas */
     .botanical-leaf, .gothic-corner, .ink-blot, .wax-seal-epic, .stellar-constellation, .scifi-hud-corner {
         display: none;
         position: absolute;
         pointer-events: none;
     }
 
-    /* ======================================== */
     /* ATELIER CLÁSSICO */
-    /* ======================================== */
     body.theme-classic .paper-sheet-container{
-        max-width:980px;
-        margin:35px auto;
         background:#f8f3e8;
-        border:14px solid #d8ccb6;
-        border-radius:18px;
-        padding:60px;
-        box-shadow: 0 20px 60px rgba(0,0,0,.28);
+        border:12px solid #d8ccb6;
+        border-radius:16px;
+    }
+    body.theme-classic .paper-chapter-num {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #8c7b65;
+        margin-bottom: 0.5rem;
     }
     body.theme-classic .paper-title-field{
-        text-align:left;
+        text-align:center;
         font-size:2.2rem;
         font-family: var(--font-heading);
+        color: #2E241E;
+    }
+    body.theme-classic .paper-subtitle-field {
+        text-align: center;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: #6e5e4e;
+        margin-bottom: 1.5rem;
     }
     body.theme-classic .paper-editor-area{
         text-align:justify;
         line-height:2;
+        font-size: 1.15rem;
     }
 
-    /* ======================================== */
     /* GOTHIC ROMANCE */
-    /* ======================================== */
     body.theme-gothic .paper-sheet-container{
-        max-width:860px;
-        margin:40px auto;
         background:#120d12;
-        padding:90px;
+        padding:80px;
         border-radius:4px;
         border:1px solid #5b4426;
-        box-shadow:
-          0 0 0 1px #b38b52 inset,
-          0 0 0 10px rgba(179,139,82,.05) inset,
-          0 30px 90px rgba(0,0,0,.85);
-    }
-    body.theme-gothic .editor-wrapper{
-        max-width:540px;
-        width:100%;
-        margin:auto;
+        box-shadow: 0 0 0 1px #b38b52 inset, 0 30px 90px rgba(0,0,0,.85);
     }
     body.theme-gothic .paper-chapter-num{
         color:#cba05f;
         letter-spacing:4px;
+        text-align: center;
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
     }
     body.theme-gothic .paper-title-field{
-        font-size:3rem;
+        font-size:2.8rem;
         color:#cba05f;
         font-family: var(--font-heading);
+        text-align: center;
+    }
+    body.theme-gothic .paper-subtitle-field {
+        text-align: center;
+        color: #a68970;
+        font-style: italic;
+        margin-bottom: 1.5rem;
     }
     body.theme-gothic .paper-editor-area{
         text-align:justify;
         line-height:2.15;
         color:#d7bb8e;
-    }
-    body.theme-gothic .chapter-divider-svg{
-        max-width:420px;
-        opacity:1;
-        fill:#cba05f;
-        display: block;
-        margin: 0 auto;
-    }
-    body.theme-gothic .drop-cap-gothic{
-        font-size:90px;
-        color:#cba05f;
-        float: left;
-        line-height: 0.8;
-        margin-right: 12px;
-        font-family: 'UnifrakturMaguntia', serif;
+        font-size: 1.15rem;
     }
     body.theme-gothic .gothic-corner {
         display: block;
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
     .corner-tl { top: 15px; left: 15px; }
     .corner-tr { top: 15px; right: 15px; transform: scaleX(-1); }
     .corner-bl { bottom: 15px; left: 15px; transform: scaleY(-1); }
     .corner-br { bottom: 15px; right: 15px; transform: scale(-1); }
 
-    /* ======================================== */
     /* ROMANCE ÉPICO */
-    /* ======================================== */
     body.theme-epic .paper-sheet-container{
-        max-width:880px;
-        margin:35px auto;
         background:#f4ecd7;
         border:8px solid #dbc8a3;
-        border-radius:10px;
-        padding:75px;
-        box-shadow: 0 20px 60px rgba(0,0,0,.22);
+        border-radius:8px;
+    }
+    body.theme-epic .paper-chapter-num {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #7a6b52;
+        margin-bottom: 0.5rem;
     }
     body.theme-epic .paper-title-field{
-        font-size:2.8rem;
+        font-size:2.6rem;
         font-style:italic;
         font-family: var(--font-heading);
+        text-align: center;
+    }
+    body.theme-epic .paper-subtitle-field {
+        text-align: center;
+        font-style: italic;
+        color: #63533c;
+        margin-bottom: 1.5rem;
     }
     body.theme-epic .paper-editor-area{
         text-align:justify;
         line-height:2;
-    }
-    body.theme-epic .wax-seal-epic {
-        display: block;
-        width: 60px;
-        height: 60px;
-        background: #8b152b;
-        border-radius: 50%;
-        position: absolute;
-        bottom: 40px;
-        right: 40px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        border: 2px dashed #5a0e1f;
+        font-size: 1.15rem;
     }
 
-    /* ======================================== */
     /* POÉTICO ESTELAR */
-    /* ======================================== */
     body.theme-poetic .paper-sheet-container{
-        max-width:940px;
-        margin:40px auto;
         background:#fbfdff;
-        border-radius:18px;
-        padding:60px;
-        box-shadow: 0 15px 60px rgba(0,0,0,.18);
+        border-radius:16px;
+    }
+    body.theme-poetic .paper-chapter-num {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #64748b;
+        margin-bottom: 0.5rem;
+    }
+    body.theme-poetic .paper-title-field{
+        text-align: center;
+        font-size: 2.2rem;
+        font-family: var(--font-heading);
+    }
+    body.theme-poetic .paper-subtitle-field {
+        text-align: center;
+        font-style: italic;
+        color: #94a3b8;
+        margin-bottom: 1.5rem;
     }
     body.theme-poetic .paper-editor-area{
         text-align:justify;
         line-height:2;
-    }
-    body.theme-poetic .stellar-constellation {
-        display: block;
-        width: 100px;
-        height: 100px;
-        top: 20px;
-        right: 30px;
-        opacity: 0.6;
+        font-size: 1.15rem;
     }
 
-    /* ======================================== */
     /* FICÇÃO CIENTÍFICA */
-    /* ======================================== */
     body.theme-scifi .paper-sheet-container{
-        max-width:920px;
-        margin:35px auto;
         background:#080d18;
         border:1px solid #00f0ff;
         border-radius:0;
-        padding:60px;
-        box-shadow: 0 0 25px rgba(0,240,255,.25);
+    }
+    body.theme-scifi .paper-chapter-num {
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #00f0ff;
+        font-family: "Fira Code", monospace;
+        margin-bottom: 0.5rem;
     }
     body.theme-scifi .paper-title-field{
         color:#00f0ff;
-        font-size:2.5rem;
+        font-size:2.4rem;
+        font-family: "Fira Code", monospace;
+        text-align: center;
+    }
+    body.theme-scifi .paper-subtitle-field {
+        text-align: center;
+        color: #67e8f9;
+        font-family: "Fira Code", monospace;
+        margin-bottom: 1.5rem;
     }
     body.theme-scifi .paper-editor-area{
         font-family:"Fira Code", monospace;
         line-height:2;
         color:#8defff;
-        background: transparent;
-        border: none;
-        width: 100%;
-        resize: vertical;
-        outline: none;
+        font-size: 1rem;
+        text-align: left;
     }
-    body.theme-scifi .scifi-hud-corner {
-        display: block;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #00f0ff;
-        position: absolute;
-    }
-    .hud-tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
-    .hud-tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
-    .hud-bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
-    .hud-br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
-    /* Campos de texto globais do editor */
+    /* Campos de texto comuns */
     .paper-title-field, .paper-subtitle-field {
         width: 100%;
         background: transparent;
@@ -518,7 +519,6 @@
         outline: none;
         color: inherit;
         font-family: inherit;
-        margin-bottom: 1rem;
     }
     .paper-editor-area {
         width: 100%;
@@ -528,27 +528,46 @@
         color: inherit;
         font-family: inherit;
         resize: vertical;
-        min-height: 250px;
+        min-height: 280px;
     }
 
+    /* BARRA FLUTUANTE DE FORMATAÇÃO REFINADA */
     .paper-format-bar-floating {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-        background: var(--bg-card);
-        border: 1px solid var(--bg-panel-border);
-        padding: 0.4rem 0.8rem;
-        border-radius: 6px;
-        margin-bottom: 1rem;
-        font-size: 0.75rem;
+        background: rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        margin: 1.5rem auto 2rem;
+        max-width: 480px;
+        gap: 0.3rem;
     }
-    .fmt-buttons-row { display: flex; gap: 0.3rem; }
+    body.theme-gothic .paper-format-bar-floating, body.theme-scifi .paper-format-bar-floating {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+    .fmt-buttons-row { display: flex; gap: 0.4rem; }
     .fmt-btn-round {
-        background: transparent; border: 1px solid var(--bg-panel-border);
-        color: var(--text-main); width: 24px; height: 24px; border-radius: 4px;
-        cursor: pointer; font-size: 0.75rem; display: flex; align-items: center; justify-content: center;
+        background: var(--paper-bg); 
+        border: 1px solid rgba(0,0,0,0.15);
+        color: var(--paper-text); 
+        width: 28px; height: 28px; border-radius: 50%;
+        cursor: pointer; font-size: 0.78rem; display: flex; align-items: center; justify-content: center;
+        transition: all 0.2s;
     }
-    .fmt-hint-text { color: var(--text-muted); font-size: 0.7rem; }
+    .fmt-btn-round:hover {
+        background: var(--accent-gold);
+        color: #2E241E;
+        border-color: var(--accent-gold);
+    }
+    body.theme-gothic .fmt-btn-round, body.theme-scifi .fmt-btn-round {
+        background: #1c1417;
+        color: var(--paper-text);
+        border-color: #5b4426;
+    }
+    .fmt-hint-text { color: inherit; opacity: 0.65; font-size: 0.68rem; text-align: center; }
 
     .paper-status-footer {
         display: flex;
@@ -556,105 +575,55 @@
         align-items: center;
         border-top: 1px solid rgba(0,0,0,0.1);
         padding-top: 0.8rem;
-        margin-top: 1.5rem;
+        margin-top: 2rem;
         font-size: 0.75rem;
-        color: var(--text-muted);
+        opacity: 0.7;
     }
 
     .progress-bar-bg { width: 100%; height: 6px; background: var(--bg-card); border-radius: 3px; overflow: hidden; margin-top: 0.3rem; }
     .progress-bar-fill { height: 100%; background: var(--accent-gold); transition: width 0.3s; }
 
-    /* ======================================== */
     /* RESPONSIVIDADE */
-    /* ======================================== */
     @media (max-width: 1200px){
-      .app-grid{
-          grid-template-columns: 220px 1fr;
-      }
-      .app-grid aside:last-child{
-          display:none;
-      }
+      .app-grid{ grid-template-columns: 220px 1fr; }
+      .app-grid aside:last-child{ display:none; }
     }
     @media (max-width: 900px){
-       .app-grid{
-          grid-template-columns:1fr;
-       }
-       .app-grid aside{
-          display:none;
-       }
-       .paper-sheet-container{
-          max-width:100% !important;
-          padding:30px !important;
-       }
-       body.theme-gothic .editor-wrapper{
-          max-width:100%;
-       }
+       .app-grid{ grid-template-columns:1fr; }
+       .app-grid aside{ display:none; }
+       .paper-sheet-container{ max-width:100% !important; padding:30px !important; }
     }
 
     .config-card-box { margin-bottom: 1.2rem; }
     .config-card-box h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 700; }
-
     .config-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
     .config-row span { color: var(--text-muted); }
     .config-row select, .config-row strong { color: var(--text-main); font-weight: 600; background: transparent; border: none; outline: none; text-align: right; font-size: 0.8rem; cursor: pointer; }
-
     .comp-input-box { width: 50px; background: var(--bg-card); border: 1px solid var(--bg-panel-border); color: var(--text-main); border-radius: 4px; padding: 0.15rem 0.3rem; font-size: 0.75rem; text-align: center; }
 
     .style-options-list { display: flex; flex-direction: column; gap: 0.4rem; }
     .style-option-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--bg-panel-border);
-      color: var(--text-main);
-      padding: 0.5rem 0.7rem;
-      border-radius: 8px;
-      font-size: 0.78rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.2s ease;
+      background: var(--bg-card); border: 1px solid var(--bg-panel-border); color: var(--text-main);
+      padding: 0.5rem 0.7rem; border-radius: 8px; font-size: 0.78rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; transition: all 0.2s ease;
     }
     .style-option-btn:hover { border-color: var(--accent-gold); }
-    .style-option-btn.active {
-      border-color: var(--accent-gold);
-      background: rgba(192, 161, 107, 0.15);
-      font-weight: 600;
-    }
+    .style-option-btn.active { border-color: var(--accent-gold); background: rgba(192, 161, 107, 0.15); font-weight: 600; }
 
     .app-section-content { display: none; }
     .app-section-content.active { display: block; }
 
-    /* ====================================================== */
     /* COMUNIDADE PRIVADA E REDE DE AUTORES */
-    /* ====================================================== */
     .community-private-layout {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 1.5rem;
-      height: calc(100vh - 140px);
-      margin: 1rem 1.5rem;
+      display: grid; grid-template-columns: 320px 1fr; gap: 1.5rem; height: calc(100vh - 140px); margin: 1rem 1.5rem;
     }
     .community-sidebar-panel {
-      background: var(--bg-panel);
-      border: 1px solid var(--bg-panel-border);
-      border-radius: 12px;
-      padding: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      overflow-y: auto;
+      background: var(--bg-panel); border: 1px solid var(--bg-panel-border); border-radius: 12px;
+      padding: 1.2rem; display: flex; flex-direction: column; gap: 1rem; overflow-y: auto;
     }
     .community-main-panel {
-      background: var(--bg-panel);
-      border: 1px solid var(--bg-panel-border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--text-muted);
+      background: var(--bg-panel); border: 1px solid var(--bg-panel-border); border-radius: 12px;
+      padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-muted);
     }
 
     /* CHAT POPUP FLUTUANTE */
@@ -669,16 +638,14 @@
       background: var(--bg-wood); padding: 0.75rem 1rem; border-bottom: 1px solid var(--bg-panel-border);
       display: flex; justify-content: space-between; align-items: center; border-top-left-radius: 12px; border-top-right-radius: 12px;
     }
-    .chat-popup-messages {
-      flex: 1; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.6rem;
-    }
+    .chat-popup-messages { flex: 1; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.6rem; }
     .chat-bubble { max-width: 80%; padding: 0.5rem 0.8rem; border-radius: 8px; font-size: 0.82rem; position: relative; }
     .chat-bubble.mine { background: var(--accent-gold); color: #2E241E; font-weight: 500; align-self: flex-end; }
     .chat-bubble.other { background: var(--bg-card); color: var(--text-main); align-self: flex-start; }
     .chat-bubble-time { font-size: 0.6rem; opacity: 0.7; display: block; text-align: right; margin-top: 0.2rem; }
     .chat-popup-input-row { padding: 0.8rem; border-top: 1px solid var(--bg-panel-border); display: flex; gap: 0.5rem; background: var(--bg-panel); }
 
-    /* MODAL DE PERFIL / BUSCA / AUTH */
+    /* MODAL DE PERFIL / AUTH */
     .modal-overlay { 
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
       background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(6px); 
@@ -818,26 +785,12 @@
             </div>
 
             <div class="paper-sheet-container" id="paperSheet">
-              <!-- ORNAMENTOS DECORATIVOS DOS TEMAS -->
               <svg class="gothic-corner corner-tl" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
               <svg class="gothic-corner corner-tr" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
               <svg class="gothic-corner corner-bl" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
               <svg class="gothic-corner corner-br" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
 
-              <div class="wax-seal-epic"></div>
-
-              <svg class="stellar-constellation" viewBox="0 0 100 100" stroke="var(--primary-lilac)" stroke-width="1.5" fill="none"><circle cx="20" cy="20" r="3" fill="currentColor"/><circle cx="60" cy="30" r="2" fill="currentColor"/><circle cx="80" cy="70" r="4" fill="currentColor"/><line x1="20" y1="20" x2="60" y2="30"/><line x1="60" y1="30" x2="80" y2="70"/></svg>
-
-              <div class="scifi-hud-corner hud-tl"></div>
-              <div class="scifi-hud-corner hud-tr"></div>
-              <div class="scifi-hud-corner hud-bl"></div>
-              <div class="scifi-hud-corner hud-br"></div>
-
               <div class="paper-chapter-num" id="paperChapterNumTag">CAPÍTULO 1</div>
-
-              <svg class="chapter-divider-svg" viewBox="0 0 300 20">
-                <path d="M0,10 L120,10 M180,10 L300,10 M150,2 L160,10 L150,18 L140,10 Z" fill="currentColor"/>
-              </svg>
 
               <input type="text" class="paper-title-field" placeholder="Capítulo sem título" id="bookTitleInput" oninput="syncTitles()">
               <input type="text" class="paper-subtitle-field" placeholder="Título opcional">
@@ -856,13 +809,8 @@
               </div>
 
               <div class="editor-wrapper">
-                <span class="drop-cap-gothic">A</span>
                 <textarea class="paper-editor-area" id="bookEditorText" placeholder="Comece a escrever aqui..." oninput="updateStats()"></textarea>
               </div>
-
-              <svg class="chapter-divider-svg" viewBox="0 0 300 20" style="margin-top: 1rem;">
-                <path d="M0,10 L120,10 M180,10 L300,10 M150,2 L160,10 L150,18 L140,10 Z" fill="currentColor"/>
-              </svg>
 
               <div class="paper-status-footer">
                 <span id="footerWords">0 PALAVRAS</span>
@@ -1040,394 +988,4 @@
     <div class="auth-card" style="max-width: 450px;">
       <button class="close-modal-btn" onclick="closeProfileModal()">×</button>
       <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.2rem;">Meu Perfil de Autor</h3>
-      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Personalize suas informações na rede privada.</p>
-
-      <form onsubmit="saveProfileData(event)">
-        <div class="auth-field">
-          <label>Nome de Exibição</label>
-          <input type="text" class="auth-input" id="profileDisplayName" placeholder="Ex: Ariadny Lopes" required>
-        </div>
-        <div class="auth-field">
-          <label>@usuário único</label>
-          <input type="text" class="auth-input" id="profileUsername" placeholder="Ex: @ariadnylopes" required>
-        </div>
-        <div class="auth-field">
-          <label>Gêneros Literários Favoritos</label>
-          <input type="text" class="auth-input" id="profileGenres" placeholder="Ex: Romance Gótico • Fantasia">
-        </div>
-        <div class="auth-field">
-          <label>Biografia / Sobre você</label>
-          <textarea class="auth-input" id="profileBio" rows="3" placeholder="Apaixonada por histórias sombrias..." style="resize: none; font-family: inherit;"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.65rem;">Salvar Perfil</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- DRAWER ASSISTENTE ADA (IA) -->
-  <div class="ada-drawer-panel" id="adaDrawer">
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bg-panel-border); padding-bottom: 0.6rem;">
-      <div>
-        <h3 style="font-family: var(--font-heading); font-size: 1rem;">Ada (IA Assistente)</h3>
-        <span style="font-size: 0.7rem; color: var(--text-muted);">Sua parceira de escrita</span>
-      </div>
-      <button class="close-modal-btn" style="position: static;" onclick="toggleAdaDrawer()">×</button>
-    </div>
-
-    <div class="chat-messages-list" id="adaMsgList" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.8rem; margin: 1rem 0;">
-      <div class="chat-bubble other" style="background: var(--bg-card); color: var(--text-main);">Olá! Sou a Ada, sua assistente criativa. Posso te ajudar a gerar ideias, superar bloqueios criativos, sugerir cenas, revisar textos ou construir personagens e worldbuilding. Como começamos?</div>
-    </div>
-
-    <div class="chat-input-row" style="display: flex; gap: 0.5rem;">
-      <input type="text" class="auth-input" id="adaInput" placeholder="Pergunte algo à Ada..." onkeypress="if(event.key==='Enter') sendAdaMsg()">
-      <button class="btn btn-primary" onclick="sendAdaMsg()">✨ Enviar</button>
-    </div>
-  </div>
-
-  <!-- MODAL AUTENTICAÇÃO -->
-  <div class="modal-overlay" id="authModal">
-    <div class="auth-card">
-      <button class="close-modal-btn" onclick="closeAuthModal()">×</button>
-      <h3 id="modalTitle">Boas-vindas ao Atelier!</h3>
-      <p id="modalSubtitle">Acesse com sua conta do Google ou e-mail.</p>
-
-      <button type="button" class="btn-google" onclick="handleGoogleAuth()">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-        Continuar com o Google
-      </button>
-
-      <div class="divider"><span>OU COM SEU E-MAIL</span></div>
-
-      <form onsubmit="handleAuthSubmit(event)">
-        <div class="auth-field">
-          <label>Seu E-mail</label>
-          <input type="email" class="auth-input" id="authEmail" placeholder="seuemail@exemplo.com" required>
-        </div>
-
-        <div class="auth-field">
-          <label>Sua Senha</label>
-          <div class="password-wrapper">
-            <input type="password" class="auth-input" id="authPassword" placeholder="••••••••" required>
-            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()" id="togglePasswordIcon" title="Mostrar senha">
-              <svg id="eyeSvgIcon" viewBox="0 0 24 24">
-                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem;" id="modalSubmitBtn">Entrar no Atelier</button>
-      </form>
-
-      <div class="modal-toggle-footer">
-        <span id="modalToggleText">Ainda não tem conta?</span>
-        <a href="#" onclick="switchAuthMode(); return false;" id="modalToggleLink">Cadastre-se grátis</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- FIREBASE MODULE -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyA-bQLUivrj9Qc32J_x86zVYwRIywD-iTQ",
-      authDomain: "atelier-literario.firebaseapp.com",
-      projectId: "atelier-literario",
-      storageBucket: "atelier-literario.firebasestorage.app",
-      messagingSenderId: "586072400239",
-      appId: "1:586072400239:web:171cc21e412980900b489a",
-      measurementId: "G-GR3B548R69"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-    let currentUser = null;
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        currentUser = user;
-      } else {
-        currentUser = null;
-      }
-      window.toggleAppMode(false);
-    });
-
-    window.openAuthModal = function(mode) {
-      window.isRegisterMode = (mode === 'register');
-      updateModalUI();
-      const modal = document.getElementById('authModal');
-      if (modal) modal.classList.add('active');
-    };
-
-    window.closeAuthModal = function() {
-      const modal = document.getElementById('authModal');
-      if (modal) modal.classList.remove('active');
-      document.getElementById('authEmail').value = '';
-      document.getElementById('authPassword').value = '';
-    };
-
-    window.handleGoogleAuth = async function() {
-      const provider = new GoogleAuthProvider();
-      try {
-        const result = await signInWithPopup(auth, provider);
-        currentUser = result.user;
-        setupUserSession(currentUser);
-      } catch (error) {
-        alert("Erro ao fazer login com o Google: " + error.message);
-      }
-    };
-
-    window.handleAuthSubmit = async function(event) {
-      event.preventDefault();
-      const email = document.getElementById('authEmail').value;
-      const password = document.getElementById('authPassword').value;
-
-      try {
-        let userCred;
-        if (window.isRegisterMode) {
-          userCred = await createUserWithEmailAndPassword(auth, email, password);
-          alert("Conta criada com sucesso no Atelier!");
-        } else {
-          userCred = await signInWithEmailAndPassword(auth, email, password);
-        }
-        currentUser = userCred.user;
-        setupUserSession(currentUser);
-      } catch (error) {
-        alert("Falha na autenticação: " + error.message);
-      }
-    };
-
-    window.logout = async function() {
-      await signOut(auth);
-      window.toggleAppMode(false);
-    };
-
-    window.saveToFirestore = async function() {
-      if (!currentUser) {
-        alert("Sua sessão expirou. Faça login novamente para salvar.");
-        return;
-      }
-      const text = document.getElementById('bookEditorText').value;
-      const title = document.getElementById('bookTitleInput').value;
-
-      try {
-        await setDoc(doc(db, "manuscritos", currentUser.uid), {
-          titulo: title,
-          conteudo: text,
-          atualizadoEm: new Date()
-        });
-        alert("Rascunho salvo com segurança na sua conta!");
-      } catch (e) {
-        alert("Erro ao salvar: " + e.message);
-      }
-    };
-
-    async function setupUserSession(user) {
-      const initial = user.email ? user.email.charAt(0).toUpperCase() : 'A';
-      const avatarEl = document.getElementById('userAvatar');
-      if(avatarEl) avatarEl.innerText = initial;
-      
-      window.closeAuthModal();
-      window.toggleAppMode(true);
-
-      try {
-        const docRef = doc(db, "manuscritos", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          document.getElementById('bookEditorText').value = data.conteudo || '';
-          document.getElementById('bookTitleInput').value = data.titulo || '';
-          window.syncTitles();
-          window.updateStats();
-        }
-      } catch(e) {
-        console.log("Nenhum rascunho anterior encontrado.");
-      }
-    }
-  </script>
-
-  <script>
-    window.isRegisterMode = false;
-
-    window.syncTitles = function() {
-      const titleVal = document.getElementById('bookTitleInput').value.trim();
-      const finalTitle = titleVal === '' ? 'Capítulo sem título' : titleVal;
-      
-      document.getElementById('sidebarCapTitle').innerText = finalTitle;
-      document.getElementById('displayBookTitle').innerText = titleVal === '' ? 'Meu Livro' : titleVal;
-    };
-
-    window.switchAppSection = function(secName) {
-      document.getElementById('sectionBook').classList.remove('active');
-      document.getElementById('sectionCommunity').classList.remove('active');
-      document.getElementById('tabBtnBook').classList.remove('active');
-      document.getElementById('tabBtnCommunity').classList.remove('active');
-
-      if (secName === 'book') {
-        document.getElementById('sectionBook').classList.add('active');
-        document.getElementById('tabBtnBook').classList.add('active');
-      } else {
-        document.getElementById('sectionCommunity').classList.add('active');
-        document.getElementById('tabBtnCommunity').classList.add('active');
-      }
-    };
-
-    window.toggleAdaDrawer = function() {
-      document.getElementById('adaDrawer').classList.toggle('open');
-    };
-
-    window.searchAuthors = function() {
-      const query = document.getElementById('authorSearchInput').value.trim().toLowerCase();
-      const dropdown = document.getElementById('searchResultsDropdown');
-      if (!query) {
-        dropdown.style.display = 'none';
-        dropdown.innerHTML = '';
-        return;
-      }
-      dropdown.style.display = 'block';
-      dropdown.innerHTML = `<div style="padding: 0.8rem; font-size: 0.78rem; color: var(--text-muted); text-align: center;">Nenhum autor encontrado para "${query}"</div>`;
-    };
-
-    window.openProfileModal = function() {
-      document.getElementById('profileModal').classList.add('active');
-    };
-
-    window.closeProfileModal = function() {
-      document.getElementById('profileModal').classList.remove('active');
-    };
-
-    window.saveProfileData = function(event) {
-      event.preventDefault();
-      alert("Perfil de autor salvo com sucesso na rede privada!");
-      closeProfileModal();
-    };
-
-    window.openChatPopup = function(contactName) {
-      document.getElementById('chatPopupName').innerText = contactName;
-      document.getElementById('chatPopupAvatar').innerText = contactName.charAt(0).toUpperCase();
-      document.getElementById('chatPopupWindow').classList.add('active');
-    };
-
-    window.closeChatPopup = function() {
-      document.getElementById('chatPopupWindow').classList.remove('active');
-    };
-
-    window.sendPrivateMsg = function() {
-      const input = document.getElementById('chatPopupInput');
-      if (!input.value.trim()) return;
-
-      const list = document.getElementById('chatPopupMessagesList');
-      const bubble = document.createElement('div');
-      bubble.className = 'chat-bubble mine';
-      bubble.innerHTML = `${input.value}<span class="chat-bubble-time">Agora</span>`;
-      list.appendChild(bubble);
-      input.value = '';
-      list.scrollTop = list.scrollHeight;
-    };
-
-    window.sendAdaMsg = function() {
-      const input = document.getElementById('adaInput');
-      if (!input.value.trim()) return;
-
-      const list = document.getElementById('adaMsgList');
-      const userBubble = document.createElement('div');
-      userBubble.className = 'chat-bubble mine';
-      userBubble.innerText = input.value;
-      list.appendChild(userBubble);
-
-      input.value = '';
-      list.scrollTop = list.scrollHeight;
-
-      setTimeout(() => {
-        const adaBubble = document.createElement('div');
-        adaBubble.className = 'chat-bubble other';
-        adaBubble.style.background = 'var(--bg-card)';
-        adaBubble.style.color = 'var(--text-main)';
-        adaBubble.innerText = "Excelente ponto! Para essa cena, podemos trabalhar o clima e o suspense focando na descrição do ambiente e nos dilemas da personagem.";
-        list.appendChild(adaBubble);
-        list.scrollTop = list.scrollHeight;
-      }, 1000);
-    };
-
-    window.setLiteraryTheme = function(themeName) {
-      document.body.classList.remove('theme-classic', 'theme-gothic', 'theme-epic', 'theme-poetic', 'theme-scifi');
-      document.querySelectorAll('.style-option-btn').forEach(btn => btn.classList.remove('active'));
-
-      document.body.classList.add('theme-' + themeName);
-      
-      const activeBtn = document.getElementById('themeBtn-' + themeName);
-      if (activeBtn) activeBtn.classList.add('active');
-
-      const tagMap = {
-        'classic': 'CAPÍTULO 1 · ATELIER CLÁSSICO',
-        'gothic': 'CAPÍTULO 1 · GOTHIC ROMANCE',
-        'epic': 'CAPÍTULO 1 · ROMANCE ÉPICO',
-        'poetic': 'CAPÍTULO 1 · POÉTICO ESTELAR',
-        'scifi': 'CAPÍTULO 1 · FICÇÃO CIENTÍFICA'
-      };
-      document.getElementById('paperChapterNumTag').innerText = tagMap[themeName] || 'CAPÍTULO 1';
-    };
-
-    window.togglePasswordVisibility = function() {
-      const input = document.getElementById('authPassword');
-      const icon = document.getElementById('eyeSvgIcon');
-
-      if (input.type === 'password') {
-        input.type = 'text';
-        icon.innerHTML = '<path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.44-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.17c0-1.66-1.34-3-3-3l-.17.02z"/>';
-      } else {
-        input.type = 'password';
-        icon.innerHTML = '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>';
-      }
-    };
-
-    window.switchAuthMode = function() {
-      window.isRegisterMode = !window.isRegisterMode;
-      updateModalUI();
-    };
-
-    function updateModalUI() {
-      if (window.isRegisterMode) {
-        document.getElementById('modalTitle').innerText = 'Criar sua conta';
-        document.getElementById('modalSubtitle').innerText = 'Comece sua jornada no Atelier Literário hoje mesmo.';
-        document.getElementById('modalSubmitBtn').innerText = 'Criar Conta e Entrar';
-        document.getElementById('modalToggleText').innerText = 'Já possui uma conta?';
-        document.getElementById('modalToggleLink').innerText = 'Fazer Login';
-      } else {
-        document.getElementById('modalTitle').innerText = 'Boas-vindas ao Atelier!';
-        document.getElementById('modalSubtitle').innerText = 'Acesse com sua conta do Google ou e-mail.';
-        document.getElementById('modalSubmitBtn').innerText = 'Entrar no Atelier';
-        document.getElementById('modalToggleText').innerText = 'Ainda não tem conta?';
-        document.getElementById('modalToggleLink').innerText = 'Cadastre-se grátis';
-      }
-    }
-
-    window.toggleAppMode = function(isApp) {
-      document.body.classList.toggle('app-active', isApp);
-    };
-
-    window.toggleThemeMode = function() {
-      document.body.classList.toggle('app-light-mode');
-      const isLight = document.body.classList.contains('app-light-mode');
-      const text = isLight ? '🌙 Modo Escuro' : '☀️ Modo Claro';
-      
-      document.getElementById('landingThemeToggleBtn').innerText = text;
-      document.getElementById('appThemeToggleBtn').innerText = text;
-    };
-
-    window.updateStats = function() {
-      const text = document.getElementById('bookEditorText').value;
-      const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-      document.getElementById('appWordCount').innerText = words.toLocaleString('pt-BR');
-      document.getElementById('footerWords').innerText = `${words} PALAVRAS`;
-    };
-
-    window.setLiteraryTheme('classic');
-    window.toggleAppMode(false);
-  </script>
-</body>
-</html>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin
