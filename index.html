@@ -331,7 +331,6 @@
         position: relative;
     }
 
-    /* Ornamentos dos temas */
     .botanical-leaf, .gothic-corner, .ink-blot, .wax-seal-epic, .stellar-constellation, .scifi-hud-corner {
         display: none;
         position: absolute;
@@ -511,7 +510,6 @@
         text-align: left;
     }
 
-    /* Campos de texto comuns */
     .paper-title-field, .paper-subtitle-field {
         width: 100%;
         background: transparent;
@@ -531,7 +529,6 @@
         min-height: 280px;
     }
 
-    /* BARRA FLUTUANTE DE FORMATAÇÃO REFINADA */
     .paper-format-bar-floating {
         display: flex;
         flex-direction: column;
@@ -583,7 +580,6 @@
     .progress-bar-bg { width: 100%; height: 6px; background: var(--bg-card); border-radius: 3px; overflow: hidden; margin-top: 0.3rem; }
     .progress-bar-fill { height: 100%; background: var(--accent-gold); transition: width 0.3s; }
 
-    /* RESPONSIVIDADE */
     @media (max-width: 1200px){
       .app-grid{ grid-template-columns: 220px 1fr; }
       .app-grid aside:last-child{ display:none; }
@@ -679,6 +675,69 @@
     .ada-drawer-panel { position: fixed; top: 0; right: -380px; width: 380px; height: 100vh; background: var(--bg-panel); border-left: 1px solid var(--bg-panel-border); box-shadow: -10px 0 30px rgba(0,0,0,0.5); z-index: 150; transition: right 0.3s ease; display: flex; flex-direction: column; padding: 1.2rem; }
     .ada-drawer-panel.open { right: 0; }
   </style>
+  
+  <!-- SCRIPT GLOBAL ANTES DO CARREGAMENTO DO CORPO -->
+  <script>
+    let isRegisterMode = false;
+
+    window.openAuthModal = function(mode) {
+      window.isRegisterMode = (mode === 'register');
+      updateModalUI();
+      const modal = document.getElementById('authModal');
+      if (modal) modal.classList.add('active');
+    };
+
+    window.closeAuthModal = function() {
+      const modal = document.getElementById('authModal');
+      if (modal) modal.classList.remove('active');
+      document.getElementById('authEmail').value = '';
+      document.getElementById('authPassword').value = '';
+    };
+
+    window.switchAuthMode = function() {
+      window.isRegisterMode = !window.isRegisterMode;
+      updateModalUI();
+    };
+
+    function updateModalUI() {
+      const title = document.getElementById('modalTitle');
+      const subtitle = document.getElementById('modalSubtitle');
+      const submitBtn = document.getElementById('modalSubmitBtn');
+      const toggleText = document.getElementById('modalToggleText');
+      const toggleLink = document.getElementById('modalToggleLink');
+
+      if (!title) return;
+
+      if (window.isRegisterMode) {
+        title.innerText = 'Criar sua conta';
+        subtitle.innerText = 'Comece sua jornada no Atelier Literário hoje mesmo.';
+        submitBtn.innerText = 'Criar Conta e Entrar';
+        toggleText.innerText = 'Já possui uma conta?';
+        toggleLink.innerText = 'Fazer Login';
+      } else {
+        title.innerText = 'Boas-vindas ao Atelier!';
+        subtitle.innerText = 'Acesse com sua conta do Google ou e-mail.';
+        submitBtn.innerText = 'Entrar no Atelier';
+        toggleText.innerText = 'Ainda não tem conta?';
+        toggleLink.innerText = 'Cadastre-se grátis';
+      }
+    }
+
+    window.toggleAppMode = function(isApp) {
+      document.body.classList.toggle('app-active', isApp);
+    };
+
+    window.toggleThemeMode = function() {
+      document.body.classList.toggle('app-light-mode');
+      const isLight = document.body.classList.contains('app-light-mode');
+      const text = isLight ? '🌙 Modo Escuro' : '☀️ Modo Claro';
+      
+      const landBtn = document.getElementById('landingThemeToggleBtn');
+      const appBtn = document.getElementById('appThemeToggleBtn');
+      if (landBtn) landBtn.innerText = text;
+      if (appBtn) appBtn.innerText = text;
+    };
+  </script>
 </head>
 <body class="theme-classic">
 
@@ -988,4 +1047,344 @@
     <div class="auth-card" style="max-width: 450px;">
       <button class="close-modal-btn" onclick="closeProfileModal()">×</button>
       <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.2rem;">Meu Perfil de Autor</h3>
-      <p style="font-size: 0.8rem; color: var(--text-muted); margin
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Personalize suas informações na rede privada.</p>
+
+      <form onsubmit="saveProfileData(event)">
+        <div class="auth-field">
+          <label>Nome de Exibição</label>
+          <input type="text" class="auth-input" id="profileDisplayName" placeholder="Ex: Ariadny Lopes" required>
+        </div>
+        <div class="auth-field">
+          <label>@usuário único</label>
+          <input type="text" class="auth-input" id="profileUsername" placeholder="Ex: @ariadnylopes" required>
+        </div>
+        <div class="auth-field">
+          <label>Gêneros Literários Favoritos</label>
+          <input type="text" class="auth-input" id="profileGenres" placeholder="Ex: Romance Gótico • Fantasia">
+        </div>
+        <div class="auth-field">
+          <label>Biografia / Sobre você</label>
+          <textarea class="auth-input" id="profileBio" rows="3" placeholder="Apaixonada por histórias sombrias..." style="resize: none; font-family: inherit;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.65rem;">Salvar Perfil</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DRAWER ASSISTENTE ADA (IA) -->
+  <div class="ada-drawer-panel" id="adaDrawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bg-panel-border); padding-bottom: 0.6rem;">
+      <div>
+        <h3 style="font-family: var(--font-heading); font-size: 1rem;">Ada (IA Assistente)</h3>
+        <span style="font-size: 0.7rem; color: var(--text-muted);">Sua parceira de escrita</span>
+      </div>
+      <button class="close-modal-btn" style="position: static;" onclick="toggleAdaDrawer()">×</button>
+    </div>
+
+    <div class="chat-messages-list" id="adaMsgList" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.8rem; margin: 1rem 0;">
+      <div class="chat-bubble other" style="background: var(--bg-card); color: var(--text-main);">Olá! Sou a Ada, sua assistente criativa. Posso te ajudar a gerar ideias, superar bloqueios criativos, sugerir cenas, revisar textos ou construir personagens e worldbuilding. Como começamos?</div>
+    </div>
+
+    <div class="chat-input-row" style="display: flex; gap: 0.5rem;">
+      <input type="text" class="auth-input" id="adaInput" placeholder="Pergunte algo à Ada..." onkeypress="if(event.key==='Enter') sendAdaMsg()">
+      <button class="btn btn-primary" onclick="sendAdaMsg()">✨ Enviar</button>
+    </div>
+  </div>
+
+  <!-- MODAL AUTENTICAÇÃO -->
+  <div class="modal-overlay" id="authModal">
+    <div class="auth-card">
+      <button class="close-modal-btn" onclick="closeAuthModal()">×</button>
+      <h3 id="modalTitle">Boas-vindas ao Atelier!</h3>
+      <p id="modalSubtitle">Acesse com sua conta do Google ou e-mail.</p>
+
+      <button type="button" class="btn-google" onclick="handleGoogleAuth()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+        Continuar com o Google
+      </button>
+
+      <div class="divider"><span>OU COM SEU E-MAIL</span></div>
+
+      <form onsubmit="handleAuthSubmit(event)">
+        <div class="auth-field">
+          <label>Seu E-mail</label>
+          <input type="email" class="auth-input" id="authEmail" placeholder="seuemail@exemplo.com" required>
+        </div>
+
+        <div class="auth-field">
+          <label>Sua Senha</label>
+          <div class="password-wrapper">
+            <input type="password" class="auth-input" id="authPassword" placeholder="••••••••" required>
+            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()" id="togglePasswordIcon" title="Mostrar senha">
+              <svg id="eyeSvgIcon" viewBox="0 0 24 24">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem;" id="modalSubmitBtn">Entrar no Atelier</button>
+      </form>
+
+      <div class="modal-toggle-footer">
+        <span id="modalToggleText">Ainda não tem conta?</span>
+        <a href="#" onclick="switchAuthMode(); return false;" id="modalToggleLink">Cadastre-se grátis</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIREBASE MODULE -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyA-bQLUivrj9Qc32J_x86zVYwRIywD-iTQ",
+      authDomain: "atelier-literario.firebaseapp.com",
+      projectId: "atelier-literario",
+      storageBucket: "atelier-literario.firebasestorage.app",
+      messagingSenderId: "586072400239",
+      appId: "1:586072400239:web:171cc21e412980900b489a",
+      measurementId: "G-GR3B548R69"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    let currentUser = null;
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        currentUser = user;
+      } else {
+        currentUser = null;
+      }
+      window.toggleAppMode(false);
+    });
+
+    window.handleGoogleAuth = async function() {
+      const provider = new GoogleAuthProvider();
+      try {
+        const result = await signInWithPopup(auth, provider);
+        currentUser = result.user;
+        setupUserSession(currentUser);
+      } catch (error) {
+        alert("Erro ao fazer login com o Google: " + error.message);
+      }
+    };
+
+    window.handleAuthSubmit = async function(event) {
+      event.preventDefault();
+      const email = document.getElementById('authEmail').value;
+      const password = document.getElementById('authPassword').value;
+
+      try {
+        let userCred;
+        if (window.isRegisterMode) {
+          userCred = await createUserWithEmailAndPassword(auth, email, password);
+          alert("Conta criada com sucesso no Atelier!");
+        } else {
+          userCred = await signInWithEmailAndPassword(auth, email, password);
+        }
+        currentUser = userCred.user;
+        setupUserSession(currentUser);
+      } catch (error) {
+        alert("Falha na autenticação: " + error.message);
+      }
+    };
+
+    window.logout = async function() {
+      await signOut(auth);
+      window.toggleAppMode(false);
+    };
+
+    window.saveToFirestore = async function() {
+      if (!currentUser) {
+        alert("Sua sessão expirou. Faça login novamente para salvar.");
+        return;
+      }
+      const text = document.getElementById('bookEditorText').value;
+      const title = document.getElementById('bookTitleInput').value;
+
+      try {
+        await setDoc(doc(db, "manuscritos", currentUser.uid), {
+          titulo: title,
+          conteudo: text,
+          atualizadoEm: new Date()
+        });
+        alert("Rascunho salvo com segurança na sua conta!");
+      } catch (e) {
+        alert("Erro ao salvar: " + e.message);
+      }
+    };
+
+    async function setupUserSession(user) {
+      const initial = user.email ? user.email.charAt(0).toUpperCase() : 'A';
+      const avatarEl = document.getElementById('userAvatar');
+      if(avatarEl) avatarEl.innerText = initial;
+      
+      window.closeAuthModal();
+      window.toggleAppMode(true);
+
+      try {
+        const docRef = doc(db, "manuscritos", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          document.getElementById('bookEditorText').value = data.conteudo || '';
+          document.getElementById('bookTitleInput').value = data.titulo || '';
+          window.syncTitles();
+          window.updateStats();
+        }
+      } catch(e) {
+        console.log("Nenhum rascunho anterior encontrado.");
+      }
+    }
+  </script>
+
+  <script>
+    window.syncTitles = function() {
+      const titleVal = document.getElementById('bookTitleInput').value.trim();
+      const finalTitle = titleVal === '' ? 'Capítulo sem título' : titleVal;
+      
+      document.getElementById('sidebarCapTitle').innerText = finalTitle;
+      document.getElementById('displayBookTitle').innerText = titleVal === '' ? 'Meu Livro' : titleVal;
+    };
+
+    window.switchAppSection = function(secName) {
+      document.getElementById('sectionBook').classList.remove('active');
+      document.getElementById('sectionCommunity').classList.remove('active');
+      document.getElementById('tabBtnBook').classList.remove('active');
+      document.getElementById('tabBtnCommunity').classList.remove('active');
+
+      if (secName === 'book') {
+        document.getElementById('sectionBook').classList.add('active');
+        document.getElementById('tabBtnBook').classList.add('active');
+      } else {
+        document.getElementById('sectionCommunity').classList.add('active');
+        document.getElementById('tabBtnCommunity').classList.add('active');
+      }
+    };
+
+    window.toggleAdaDrawer = function() {
+      document.getElementById('adaDrawer').classList.toggle('open');
+    };
+
+    window.searchAuthors = function() {
+      const query = document.getElementById('authorSearchInput').value.trim().toLowerCase();
+      const dropdown = document.getElementById('searchResultsDropdown');
+      if (!query) {
+        dropdown.style.display = 'none';
+        dropdown.innerHTML = '';
+        return;
+      }
+      dropdown.style.display = 'block';
+      dropdown.innerHTML = `<div style="padding: 0.8rem; font-size: 0.78rem; color: var(--text-muted); text-align: center;">Nenhum autor encontrado para "${query}"</div>`;
+    };
+
+    window.openProfileModal = function() {
+      document.getElementById('profileModal').classList.add('active');
+    };
+
+    window.closeProfileModal = function() {
+      document.getElementById('profileModal').classList.remove('active');
+    };
+
+    window.saveProfileData = function(event) {
+      event.preventDefault();
+      alert("Perfil de autor salvo com sucesso na rede privada!");
+      closeProfileModal();
+    };
+
+    window.openChatPopup = function(contactName) {
+      document.getElementById('chatPopupName').innerText = contactName;
+      document.getElementById('chatPopupAvatar').innerText = contactName.charAt(0).toUpperCase();
+      document.getElementById('chatPopupWindow').classList.add('active');
+    };
+
+    window.closeChatPopup = function() {
+      document.getElementById('chatPopupWindow').classList.remove('active');
+    };
+
+    window.sendPrivateMsg = function() {
+      const input = document.getElementById('chatPopupInput');
+      if (!input.value.trim()) return;
+
+      const list = document.getElementById('chatPopupMessagesList');
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-bubble mine';
+      bubble.innerHTML = `${input.value}<span class="chat-bubble-time">Agora</span>`;
+      list.appendChild(bubble);
+      input.value = '';
+      list.scrollTop = list.scrollHeight;
+    };
+
+    window.sendAdaMsg = function() {
+      const input = document.getElementById('adaInput');
+      if (!input.value.trim()) return;
+
+      const list = document.getElementById('adaMsgList');
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble mine';
+      userBubble.innerText = input.value;
+      list.appendChild(userBubble);
+
+      input.value = '';
+      list.scrollTop = list.scrollHeight;
+
+      setTimeout(() => {
+        const adaBubble = document.createElement('div');
+        adaBubble.className = 'chat-bubble other';
+        adaBubble.style.background = 'var(--bg-card)';
+        adaBubble.style.color = 'var(--text-main)';
+        adaBubble.innerText = "Excelente ponto! Para essa cena, podemos trabalhar o clima e o suspense focando na descrição do ambiente e nos dilemas da personagem.";
+        list.appendChild(adaBubble);
+        list.scrollTop = list.scrollHeight;
+      }, 1000);
+    };
+
+    window.setLiteraryTheme = function(themeName) {
+      document.body.classList.remove('theme-classic', 'theme-gothic', 'theme-epic', 'theme-poetic', 'theme-scifi');
+      document.querySelectorAll('.style-option-btn').forEach(btn => btn.classList.remove('active'));
+
+      document.body.classList.add('theme-' + themeName);
+      
+      const activeBtn = document.getElementById('themeBtn-' + themeName);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const tagMap = {
+        'classic': 'CAPÍTULO 1',
+        'gothic': 'CAPÍTULO 1',
+        'epic': 'CAPÍTULO 1',
+        'poetic': 'CAPÍTULO 1',
+        'scifi': 'CAPÍTULO 1'
+      };
+      document.getElementById('paperChapterNumTag').innerText = tagMap[themeName] || 'CAPÍTULO 1';
+    };
+
+    window.togglePasswordVisibility = function() {
+      const input = document.getElementById('authPassword');
+      const icon = document.getElementById('eyeSvgIcon');
+
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.innerHTML = '<path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.44-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.17c0-1.66-1.34-3-3-3l-.17.02z"/>';
+      } else {
+        input.type = 'password';
+        icon.innerHTML = '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>';
+      }
+    };
+
+    window.updateStats = function() {
+      const text = document.getElementById('bookEditorText').value;
+      const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+      document.getElementById('appWordCount').innerText = words.toLocaleString('pt-BR');
+      document.getElementById('footerWords').innerText = `${words} PALAVRAS`;
+    };
+
+    window.setLiteraryTheme('classic');
+    window.toggleAppMode(false);
+  </script>
+</body>
+</html>
