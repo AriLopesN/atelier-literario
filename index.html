@@ -6,10 +6,11 @@
   <title>Atelier Literário Ada&Autora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   
   <style>
     :root {
+      /* Estilo Padrão: Atelier Clássico */
       --primary-lilac: #8a4baf;
       --primary-hover: #753999;
       --bg-main: #141318;
@@ -25,6 +26,72 @@
       --font-editor: 'EB Garamond', serif;
     }
 
+    /* ESTILO 1: Gothic Romance */
+    body.theme-gothic {
+      --primary-lilac: #8b152b;
+      --primary-hover: #6a0e1f;
+      --bg-main: #0c0a0c;
+      --bg-panel: #151115;
+      --bg-panel-border: #331d24;
+      --bg-card: #20171a;
+      --text-main: #f3e9eb;
+      --text-muted: #a68990;
+      --paper-bg: #1c1417;
+      --paper-text: #e8d0d5;
+      --font-heading: 'Cinzel', serif;
+      --font-editor: 'EB Garamond', serif;
+    }
+
+    /* ESTILO 2: Romance Épico (Jane Austen) */
+    body.theme-epic {
+      --primary-lilac: #52796f;
+      --primary-hover: #354f52;
+      --bg-main: #1b2421;
+      --bg-panel: #242f2b;
+      --bg-panel-border: #3a4a44;
+      --bg-card: #2c3934;
+      --text-main: #f0f4f2;
+      --text-muted: #98b0a7;
+      --paper-bg: #f4efe4;
+      --paper-text: #2b261f;
+      --font-heading: 'Cinzel', serif;
+      --font-editor: 'EB Garamond', serif;
+    }
+
+    /* ESTILO 3: Poético Estelar (O Pequeno Príncipe) */
+    body.theme-poetic {
+      --primary-lilac: #d97706;
+      --primary-hover: #b45309;
+      --bg-main: #0f172a;
+      --bg-panel: #1e293b;
+      --bg-panel-border: #334155;
+      --bg-card: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --paper-bg: #f1f5f9;
+      --paper-text: #0f172a;
+      --font-heading: 'Cinzel', serif;
+      --font-editor: 'EB Garamond', serif;
+    }
+
+    /* ESTILO 4: Ficção Científica (Sci-Fi / Cyberpunk) */
+    body.theme-scifi {
+      --primary-lilac: #00f0ff;
+      --primary-hover: #00b8c4;
+      --bg-main: #050811;
+      --bg-panel: #0b1120;
+      --bg-panel-border: #1e293b;
+      --bg-card: #111a2e;
+      --text-main: #00f0ff;
+      --text-muted: #64748b;
+      --paper-bg: #090e1a;
+      --paper-text: #7dd3fc;
+      --font-heading: 'Fira Code', monospace;
+      --font-body: 'Fira Code', monospace;
+      --font-editor: 'Fira Code', monospace;
+    }
+
+    /* Modo Claro Global */
     body.app-light-mode {
       --bg-main: #f5f2f9;
       --bg-panel: #ffffff;
@@ -41,7 +108,7 @@
       color: var(--text-main);
       font-family: var(--font-body);
       line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
+      transition: all 0.3s ease;
       overflow-x: hidden;
     }
 
@@ -76,8 +143,8 @@
 
     .btn-primary {
       background: var(--primary-lilac);
-      color: white;
-      box-shadow: 0 4px 14px rgba(138, 75, 175, 0.3);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
     }
 
     .btn-primary:hover {
@@ -223,31 +290,50 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       display: flex;
       flex-direction: column;
+      transition: all 0.3s ease;
     }
 
-    .paper-chapter-num { text-align: center; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888078; margin-bottom: 0.4rem; }
+    .paper-chapter-num { text-align: center; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; margin-bottom: 0.4rem; }
     .paper-title-field { background: transparent; border: none; outline: none; font-family: var(--font-heading); font-size: 1.8rem; text-align: center; color: var(--paper-text); width: 100%; }
-    .paper-subtitle-field { background: transparent; border: none; outline: none; font-family: var(--font-editor); font-size: 1.05rem; font-style: italic; text-align: center; color: #888078; width: 100%; margin-top: 0.2rem; }
+    .paper-subtitle-field { background: transparent; border: none; outline: none; font-family: var(--font-editor); font-size: 1.05rem; font-style: italic; text-align: center; opacity: 0.7; color: var(--paper-text); width: 100%; margin-top: 0.2rem; }
 
-    .paper-format-bar { display: flex; justify-content: center; gap: 0.5rem; background: rgba(0,0,0,0.04); padding: 0.3rem 0.8rem; border-radius: 20px; margin: 1.2rem auto; width: fit-content; }
-    .fmt-btn-item { background: transparent; border: none; width: 26px; height: 26px; border-radius: 4px; cursor: pointer; font-family: serif; font-weight: 700; color: #4a443f; }
+    .paper-format-bar { display: flex; justify-content: center; gap: 0.5rem; background: rgba(0,0,0,0.06); padding: 0.3rem 0.8rem; border-radius: 20px; margin: 1.2rem auto; width: fit-content; }
+    .fmt-btn-item { background: transparent; border: none; width: 26px; height: 26px; border-radius: 4px; cursor: pointer; font-family: serif; font-weight: 700; color: inherit; }
 
     .paper-editor-area {
       background: transparent; border: none; outline: none; font-family: var(--font-editor); font-size: 1.2rem; line-height: 1.8; color: var(--paper-text); resize: none; flex: 1; min-height: 350px;
     }
 
-    .paper-status-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0.8rem; margin-top: 1.5rem; font-size: 0.78rem; color: #888078; }
+    .paper-status-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0.8rem; margin-top: 1.5rem; font-size: 0.78rem; opacity: 0.7; }
 
-    .config-card-box { margin-bottom: 1rem; }
+    .config-card-box { margin-bottom: 1.2rem; }
     .config-card-box h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.8rem; }
 
     .progress-bar-bg { background: var(--bg-card); height: 6px; border-radius: 10px; overflow: hidden; margin: 0.5rem 0; }
     .progress-bar-fill { background: var(--primary-lilac); height: 100%; width: 0%; transition: width 0.3s; }
 
-    .theme-options-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
-    .theme-chip-btn { background: var(--bg-card); border: 1px solid var(--bg-panel-border); color: var(--text-main); padding: 0.4rem 0.8rem; border-radius: 50px; font-size: 0.78rem; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; }
-    .theme-chip-btn.active { border-color: var(--primary-lilac); }
-    .color-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    /* SELETOR DE ESTILOS LITERÁRIOS */
+    .style-options-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .style-option-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-panel-border);
+      color: var(--text-main);
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+    .style-option-btn:hover { border-color: var(--primary-lilac); }
+    .style-option-btn.active {
+      border-color: var(--primary-lilac);
+      background: rgba(138, 75, 175, 0.1);
+      font-weight: 600;
+    }
 
     .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 200; }
     .modal-overlay.active { display: flex; }
@@ -284,18 +370,8 @@
     .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--bg-panel-border); }
     .divider span { padding: 0 10px; }
 
-    .modal-toggle-footer {
-      text-align: center;
-      margin-top: 1.2rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-    .modal-toggle-footer a {
-      color: var(--primary-lilac);
-      font-weight: 700;
-      text-decoration: none;
-      margin-left: 0.3rem;
-    }
+    .modal-toggle-footer { text-align: center; margin-top: 1.2rem; font-size: 0.82rem; color: var(--text-muted); }
+    .modal-toggle-footer a { color: var(--primary-lilac); font-weight: 700; text-decoration: none; margin-left: 0.3rem; }
   </style>
 </head>
 <body>
@@ -312,10 +388,7 @@
       </a>
 
       <div style="display: flex; gap: 0.8rem; align-items: center;">
-        <!-- Botão de Tema Claro/Escuro na Página Inicial -->
-        <button class="btn btn-ghost" onclick="toggleThemeMode()" id="landingThemeToggleBtn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
-          ☀️ Modo Claro
-        </button>
+        <button class="btn btn-ghost" onclick="toggleThemeMode()" id="landingThemeToggleBtn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">☀️ Modo Claro</button>
         <button class="btn btn-ghost" onclick="openAuthModal('login')">Entrar</button>
         <button class="btn btn-primary" onclick="openAuthModal('register')">Comece Agora</button>
       </div>
@@ -415,14 +488,25 @@
             <span style="font-size: 0.72rem; color: var(--text-muted);" id="sidePagesEstimate">≈ 0 de ≈ 286 páginas</span>
           </div>
 
+          <!-- NOVO SELETOR DE ESTILO LITERÁRIO -->
           <div class="config-card-box">
-            <h4>COR DO APP</h4>
-            <div class="theme-options-grid">
-              <button class="theme-chip-btn" onclick="changeAppTheme('#c2b280')"><span class="color-dot" style="background: #c2b280;"></span> Areia</button>
-              <button class="theme-chip-btn" onclick="changeAppTheme('#8b3a62')"><span class="color-dot" style="background: #8b3a62;"></span> Vinho</button>
-              <button class="theme-chip-btn active" onclick="changeAppTheme('#8a4baf')"><span class="color-dot" style="background: #8a4baf;"></span> Violeta</button>
-              <button class="theme-chip-btn" onclick="changeAppTheme('#52796f')"><span class="color-dot" style="background: #52796f;"></span> Floresta</button>
-              <button class="theme-chip-btn" onclick="changeAppTheme('#3a86ff')"><span class="color-dot" style="background: #3a86ff;"></span> Oceano</button>
+            <h4>ESTILO LITERÁRIO</h4>
+            <div class="style-options-list">
+              <button class="style-option-btn active" onclick="setLiteraryTheme('classic')" id="themeBtn-classic">
+                <span>📜 Atelier Clássico</span>
+              </button>
+              <button class="style-option-btn" onclick="setLiteraryTheme('gothic')" id="themeBtn-gothic">
+                <span>🦇 Gothic Romance</span>
+              </button>
+              <button class="style-option-btn" onclick="setLiteraryTheme('epic')" id="themeBtn-epic">
+                <span>🫖 Romance Épico</span>
+              </button>
+              <button class="style-option-btn" onclick="setLiteraryTheme('poetic')" id="themeBtn-poetic">
+                <span>🌌 Poético Estelar</span>
+              </button>
+              <button class="style-option-btn" onclick="setLiteraryTheme('scifi')" id="themeBtn-scifi">
+                <span>🚀 Ficção Científica</span>
+              </button>
             </div>
           </div>
         </aside>
@@ -455,7 +539,6 @@
           <div class="password-wrapper">
             <input type="password" class="auth-input" id="authPassword" placeholder="••••••••" required>
             <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()" id="togglePasswordIcon" title="Mostrar senha">
-              <!-- Ícone SVG de Olho Fechado/Aberto Minimalista -->
               <svg id="eyeSvgIcon" viewBox="0 0 24 24">
                 <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
               </svg>
@@ -466,7 +549,6 @@
         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem;" id="modalSubmitBtn">Entrar no Atelier</button>
       </form>
 
-      <!-- Alternador de Cadastro / Login -->
       <div class="modal-toggle-footer">
         <span id="modalToggleText">Ainda não tem conta?</span>
         <a href="#" onclick="switchAuthMode(); return false;" id="modalToggleLink">Cadastre-se grátis</a>
@@ -495,20 +577,22 @@
     const db = getFirestore(app);
     let currentUser = null;
 
+    // GARANTE QUE VAI ABRIR NA LANDING PAGE AO RECARREGAR
     onAuthStateChanged(auth, (user) => {
       if (user) {
         currentUser = user;
-        setupUserSession(user);
       } else {
         currentUser = null;
-        window.toggleAppMode(false);
       }
+      window.toggleAppMode(false);
     });
 
     window.handleGoogleAuth = async function() {
       const provider = new GoogleAuthProvider();
       try {
-        await signInWithPopup(auth, provider);
+        const result = await signInWithPopup(auth, provider);
+        currentUser = result.user;
+        setupUserSession(currentUser);
       } catch (error) {
         alert("Erro ao fazer login com o Google: " + error.message);
       }
@@ -520,12 +604,15 @@
       const password = document.getElementById('authPassword').value;
 
       try {
+        let userCred;
         if (window.isRegisterMode) {
-          await createUserWithEmailAndPassword(auth, email, password);
+          userCred = await createUserWithEmailAndPassword(auth, email, password);
           alert("Conta criada com sucesso no Atelier!");
         } else {
-          await signInWithEmailAndPassword(auth, email, password);
+          userCred = await signInWithEmailAndPassword(auth, email, password);
         }
+        currentUser = userCred.user;
+        setupUserSession(currentUser);
       } catch (error) {
         alert("Falha na autenticação: " + error.message);
       }
@@ -579,31 +666,36 @@
   <script>
     window.isRegisterMode = false;
 
-    // Alternar visibilidade da senha com ícone SVG
+    // Troca os Estilos Literários
+    window.setLiteraryTheme = function(themeName) {
+      document.body.classList.remove('theme-gothic', 'theme-epic', 'theme-poetic', 'theme-scifi');
+      document.querySelectorAll('.style-option-btn').forEach(btn => btn.classList.remove('active'));
+
+      if (themeName !== 'classic') {
+        document.body.classList.add('theme-' + themeName);
+      }
+      
+      const activeBtn = document.getElementById('themeBtn-' + themeName);
+      if (activeBtn) activeBtn.classList.add('active');
+    };
+
     window.togglePasswordVisibility = function() {
       const input = document.getElementById('authPassword');
       const icon = document.getElementById('eyeSvgIcon');
 
       if (input.type === 'password') {
         input.type = 'text';
-        // Ícone de Olho Riscado (Esconder)
         icon.innerHTML = '<path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.44-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.17c0-1.66-1.34-3-3-3l-.17.02z"/>';
       } else {
         input.type = 'password';
-        // Ícone de Olho Aberto (Mostrar)
         icon.innerHTML = '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>';
       }
-    };
-
-    window.changeAppTheme = function(colorHex) {
-      document.documentElement.style.setProperty('--primary-lilac', colorHex);
     };
 
     window.toggleAppMode = function(isApp) {
       document.body.classList.toggle('app-active', isApp);
     };
 
-    // Alternar Modo Claro e Escuro
     window.toggleThemeMode = function() {
       document.body.classList.toggle('app-light-mode');
       const isLight = document.body.classList.contains('app-light-mode');
@@ -619,7 +711,6 @@
       document.getElementById('authModal').classList.add('active');
     };
 
-    // Limpa os campos de e-mail e senha ao fechar o modal
     window.closeAuthModal = function() {
       document.getElementById('authModal').classList.remove('active');
       document.getElementById('authEmail').value = '';
