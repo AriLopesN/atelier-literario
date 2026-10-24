@@ -281,6 +281,7 @@
       width: 32px; height: 32px; border-radius: 50%;
       background: var(--accent-gold); color: #2E241E;
       font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
+      cursor: pointer;
     }
 
     .book-header-section { padding: 1rem 1.5rem 0.3rem; }
@@ -454,138 +455,18 @@
         line-height:2;
         color:#8defff;
     }
-
-    /* ======================================== */
-    /* ÁREA DE COMUNIDADE PRIVADA & CHAT */
-    /* ======================================== */
-    .community-private-layout {
-      display: grid;
-      grid-template-columns: 320px 1fr 340px;
-      gap: 1.2rem;
-      height: calc(100vh - 150px);
-      margin: 1rem 1.5rem;
-    }
-    .community-sidebar-panel, .community-main-panel, .community-profile-panel {
-      background: var(--bg-panel);
-      border: 1px solid var(--bg-panel-border);
-      border-radius: 12px;
-      padding: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .contacts-list-container {
-      flex: 1;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.7rem;
-      border-radius: 8px;
-      background: var(--bg-card);
-      cursor: pointer;
-      transition: all 0.2s;
-      border: 1px solid transparent;
-    }
-    .contact-item:hover { border-color: var(--accent-gold); }
-    .contact-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: var(--accent-gold); color: #2E241E; font-weight: 700;
-      display: flex; align-items: center; justify-content: center; position: relative;
-    }
-    .online-indicator {
-      width: 10px; height: 10px; border-radius: 50%; background: #22c55e;
-      position: absolute; bottom: 0; right: 0; border: 2px solid var(--bg-panel);
-    }
-    .offline-indicator {
-      width: 10px; height: 10px; border-radius: 50%; background: #64748b;
-      position: absolute; bottom: 0; right: 0; border: 2px solid var(--bg-panel);
-    }
-    .contact-info { flex: 1; min-width: 0; }
-    .contact-name { font-size: 0.88rem; font-weight: 600; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .contact-last-msg { font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .unread-badge { background: var(--accent-gold); color: #2E241E; font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 10px; }
-
-    /* CHAT MODAL FLUTUANTE (POPUP) */
-    .chat-popup-window {
-      position: fixed;
-      bottom: 20px;
-      right: 30px;
-      width: 340px;
-      height: 460px;
-      background: var(--bg-panel);
-      border: 1px solid var(--accent-gold);
-      border-radius: 12px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-      z-index: 1000;
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .chat-popup-window.active { display: flex; }
-    .chat-popup-header {
-      background: var(--bg-wood);
-      padding: 0.8rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--bg-panel-border);
-    }
-    .chat-popup-body {
-      flex: 1;
-      padding: 1rem;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    .chat-popup-footer {
-      padding: 0.8rem;
-      background: var(--bg-card);
-      border-top: 1px solid var(--bg-panel-border);
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .author-search-result {
-      background: var(--bg-card);
-      border: 1px solid var(--bg-panel-border);
-      border-radius: 10px;
-      padding: 1rem;
-      margin-top: 0.8rem;
-    }
-
-    .profile-card-details {
-      text-align: center;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--bg-panel-border);
-    }
-    .profile-large-avatar {
-      width: 70px; height: 70px; border-radius: 50%;
-      background: var(--accent-gold); color: #2E241E; font-size: 1.5rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 0.8rem;
-    }
-
     /* ======================================== */
     /* RESPONSIVIDADE */
     /* ======================================== */
     @media (max-width: 1200px){
       .app-grid{
-          grid-template-columns: 220px 1fr;
+          grid-template-columns:
+          220px
+          1fr;
       }
       .app-grid aside:last-child{
           display:none;
       }
-      .community-private-layout {
-          grid-template-columns: 280px 1fr;
-      }
-      .community-profile-panel { display: none; }
     }
     @media (max-width: 900px){
        .app-grid{
@@ -600,10 +481,6 @@
        }
        body.theme-gothic .editor-wrapper{
           max-width:100%;
-       }
-       .community-private-layout {
-          grid-template-columns: 1fr;
-          height: auto;
        }
     }
 
@@ -640,21 +517,99 @@
     .app-section-content { display: none; }
     .app-section-content.active { display: block; }
 
-    .ada-drawer-panel { position: fixed; top: 0; right: -380px; width: 380px; height: 100vh; background: var(--bg-panel); border-left: 1px solid var(--bg-panel-border); box-shadow: -10px 0 30px rgba(0,0,0,0.5); z-index: 150; transition: right 0.3s ease; display: flex; flex-direction: column; padding: 1.2rem; }
-    .ada-drawer-panel.open { right: 0; }
+    /* ====================================================== */
+    /* COMUNIDADE PRIVADA E REDE DE AUTORES */
+    /* ====================================================== */
+    .community-private-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 1.5rem;
+      height: calc(100vh - 140px);
+      margin: 1rem 1.5rem;
+    }
+    .community-sidebar-panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow-y: auto;
+    }
+    .community-main-panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .contact-list-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 0.8rem;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .contact-list-item:hover { border-color: var(--accent-gold); }
+    .contact-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--accent-gold); color: #2E241E;
+      font-weight: 700; display: flex; align-items: center; justify-content: center;
+      position: relative; flex-shrink: 0;
+    }
+    .online-indicator {
+      width: 10px; height: 10px; border-radius: 50%; background: #22c55e;
+      position: absolute; bottom: 0; right: 0; border: 2px solid var(--bg-panel);
+    }
+    .offline-indicator {
+      width: 10px; height: 10px; border-radius: 50%; background: #64748b;
+      position: absolute; bottom: 0; right: 0; border: 2px solid var(--bg-panel);
+    }
+    .contact-info { flex: 1; text-align: left; overflow: hidden; }
+    .contact-name { font-size: 0.88rem; font-weight: 600; color: var(--text-main); }
+    .contact-last-msg { font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .unread-badge {
+      background: var(--accent-gold); color: #2E241E; font-size: 0.65rem; font-weight: 700;
+      padding: 0.1rem 0.4rem; border-radius: 10px;
+    }
 
+    /* CHAT POPUP FLUTUANTE */
+    .chat-popup-window {
+      position: fixed; bottom: 0; right: 30px; width: 340px; height: 450px;
+      background: var(--bg-panel); border: 1px solid var(--bg-panel-border);
+      border-top-left-radius: 12px; border-top-right-radius: 12px;
+      box-shadow: 0 -5px 25px rgba(0,0,0,0.4); display: none; flex-direction: column; z-index: 200;
+    }
+    .chat-popup-window.active { display: flex; }
+    .chat-popup-header {
+      background: var(--bg-wood); padding: 0.75rem 1rem; border-bottom: 1px solid var(--bg-panel-border);
+      display: flex; justify-content: space-between; align-items: center; border-top-left-radius: 12px; border-top-right-radius: 12px;
+    }
+    .chat-popup-messages {
+      flex: 1; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .chat-bubble { max-width: 80%; padding: 0.5rem 0.8rem; border-radius: 8px; font-size: 0.82rem; position: relative; }
+    .chat-bubble.mine { background: var(--accent-gold); color: #2E241E; font-weight: 500; align-self: flex-end; }
+    .chat-bubble.other { background: var(--bg-card); color: var(--text-main); align-self: flex-start; }
+    .chat-bubble-time { font-size: 0.6rem; opacity: 0.7; display: block; text-align: right; margin-top: 0.2rem; }
+    .chat-popup-input-row { padding: 0.8rem; border-top: 1px solid var(--bg-panel-border); display: flex; gap: 0.5rem; background: var(--bg-panel); }
+
+    /* MODAL DE PERFIL / BUSCA */
     .modal-overlay { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      width: 100vw; 
-      height: 100vh; 
-      background: rgba(0, 0, 0, 0.75); 
-      backdrop-filter: blur(6px); 
-      display: none; 
-      align-items: center; 
-      justify-content: center; 
-      z-index: 9999; 
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+      background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(6px); 
+      display: none; align-items: center; justify-content: center; z-index: 9999; 
     }
     .modal-overlay.active { display: flex !important; }
 
@@ -680,6 +635,9 @@
 
     .modal-toggle-footer { text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); }
     .modal-toggle-footer a { color: var(--accent-gold); font-weight: 700; text-decoration: none; margin-left: 0.3rem; }
+
+    .ada-drawer-panel { position: fixed; top: 0; right: -380px; width: 380px; height: 100vh; background: var(--bg-panel); border-left: 1px solid var(--bg-panel-border); box-shadow: -10px 0 30px rgba(0,0,0,0.5); z-index: 150; transition: right 0.3s ease; display: flex; flex-direction: column; padding: 1.2rem; }
+    .ada-drawer-panel.open { right: 0; }
   </style>
 </head>
 <body class="theme-classic">
@@ -723,7 +681,7 @@
 
           <div class="app-nav-tabs">
             <button class="nav-tab-btn active" onclick="switchAppSection('book')" id="tabBtnBook">📖 Meu Livro</button>
-            <button class="nav-tab-btn" onclick="switchAppSection('community')" id="tabBtnCommunity">👥 Rede de Autores</button>
+            <button class="nav-tab-btn" onclick="switchAppSection('community')" id="tabBtnCommunity">👥 Comunidade</button>
             <button class="nav-tab-btn" onclick="toggleAdaDrawer()">🤖 Conversar com Ada</button>
           </div>
         </div>
@@ -738,7 +696,7 @@
 
           <button class="btn btn-primary" onclick="saveToFirestore()">💾 Salvar</button>
           
-          <div class="user-avatar-btn" id="userAvatar">A</div>
+          <div class="user-avatar-btn" id="userAvatar" onclick="openProfileModal()" title="Meu Perfil">A</div>
           <button class="btn btn-ghost" onclick="logout()">Sair ➔</button>
         </div>
       </header>
@@ -950,115 +908,93 @@
         </div>
       </div>
 
-      <!-- SEÇÃO 2: REDE DE AUTORES & COMUNIDADE PRIVADA -->
+      <!-- SEÇÃO 2: COMUNIDADE DE AUTORES (REDE PRIVADA) -->
       <div class="app-section-content" id="sectionCommunity">
         <div class="community-private-layout">
-          
-          <!-- COLUNA 1: MEUS CONTATOS E BUSCA DE AUTORES -->
+          <!-- PAINEL LATERAL: BUSCA E LISTA DE CONTATOS -->
           <div class="community-sidebar-panel">
-            <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem;">💬 Meus Contatos</h4>
+            <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px;">Rede Privada de Autores</h4>
             
-            <div class="auth-field" style="margin-bottom: 0.6rem;">
-              <input type="text" class="auth-input" id="authorSearchInput" placeholder="🔍 Buscar por nome ou @usuário..." oninput="searchAuthors()" style="font-size: 0.8rem;">
+            <!-- BUSCA DE AUTORES -->
+            <div style="position: relative;">
+              <input type="text" class="auth-input" id="authorSearchInput" placeholder="🔎 Buscar por nome ou @usuário..." oninput="searchAuthors()" style="font-size: 0.82rem;">
+              <div id="searchResultsDropdown" style="position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-card); border: 1px solid var(--bg-panel-border); border-radius: 8px; margin-top: 4px; display: none; z-index: 10; max-height: 200px; overflow-y: auto;"></div>
             </div>
 
-            <!-- RESULTADOS DA BUSCA (SE HOUVER) -->
-            <div id="searchResultsBox" style="display: none; margin-bottom: 0.8rem;">
-              <span class="struct-title">Resultados da Busca</span>
-              <div id="searchResultsList" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.3rem;"></div>
-            </div>
+            <div style="border-top: 1px solid var(--bg-panel-border); margin: 0.2rem 0;"></div>
 
-            <!-- SOLICITAÇÕES PENDENTES -->
-            <div id="pendingRequestsContainer" style="display: none; margin-bottom: 0.8rem;">
-              <span class="struct-title">Solicitações Pendentes</span>
-              <div id="pendingRequestsList" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.3rem;"></div>
-            </div>
-
-            <span class="struct-title" style="margin-top: 0.4rem;">Contatos Conectados</span>
-            <div class="contacts-list-container" id="myContactsList">
-              <div class="contact-item" onclick="openChatPopup('Maria Oliveira', 'marialima')">
-                <div class="contact-avatar">M<div class="online-indicator"></div></div>
-                <div class="contact-info">
-                  <div class="contact-name">Maria Oliveira</div>
-                  <div class="contact-last-msg">Terminei o capítulo</div>
-                </div>
-                <span class="unread-badge">2</span>
-              </div>
-              <div class="contact-item" onclick="openChatPopup('João Martins', 'joaomartins')">
-                <div class="contact-avatar">J<div class="offline-indicator"></div></div>
-                <div class="contact-info">
-                  <div class="contact-name">João Martins</div>
-                  <div class="contact-last-msg">Vou revisar hoje</div>
-                </div>
-              </div>
+            <!-- MEUS CONTATOS -->
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px;">💬 Meus Contatos</h4>
+            <div id="myContactsList" style="display: flex; flex-direction: column; gap: 0.5rem; overflow-y: auto;">
+              <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; padding: 1.5rem 0;">Nenhum contato adicionado na rede ainda. Use a busca acima para encontrar autores.</div>
             </div>
           </div>
 
-          <!-- COLUNA 2: ÁREA CENTRAL DE INTERAÇÃO -->
-          <div class="community-main-panel" style="justify-content: center; align-items: center; text-align: center;">
+          <!-- PAINEL PRINCIPAL DA COMUNIDADE -->
+          <div class="community-main-panel">
             <div style="max-width: 400px;">
-              <div style="font-size: 3rem; margin-bottom: 0.8rem;">🕊️</div>
-              <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.5rem;">Rede Privada de Autores</h3>
-              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Selecione um contato na barra lateral para iniciar uma conversa privada ou busque novos autores pelo nome de usuário para expandir seu círculo literário.</p>
+              <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-main);">Seu Círculo Literário</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Selecione um contato à esquerda para abrir a janela de mensagens privadas ou pesquise novos autores para expandir sua rede de escrita.</p>
             </div>
           </div>
-
-          <!-- COLUNA 3: MEU PERFIL DE AUTOR -->
-          <div class="community-profile-panel">
-            <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.8rem;">Meu Perfil Literário</h4>
-            
-            <div class="profile-card-details">
-              <div class="profile-large-avatar" id="myProfileAvatar">A</div>
-              <h3 id="myProfileName" style="font-family: var(--font-heading); font-size: 1.1rem;">Ariadny Lopes</h3>
-              <span id="myProfileUsername" style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 600;">@ariadnylopes</span>
-            </div>
-
-            <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.8rem;">
-              <div>
-                <span style="color: var(--text-muted); display: block; font-size: 0.7rem; text-transform: uppercase;">Gêneros Favoritos</span>
-                <strong id="myProfileGenres">Romance Gótico • Fantasia Sombria</strong>
-              </div>
-              <div>
-                <span style="color: var(--text-muted); display: block; font-size: 0.7rem; text-transform: uppercase;">Biografia</span>
-                <p id="myProfileBio" style="font-style: italic; color: var(--text-main); margin-top: 0.2rem;">Apaixonada por histórias sombrias, castelos e personagens complexos.</p>
-              </div>
-              <div>
-                <span style="color: var(--text-muted); display: block; font-size: 0.7rem; text-transform: uppercase;">Estatísticas</span>
-                <div>📚 Livros na plataforma: <strong>1</strong></div>
-                <div>📅 Membro desde: <strong>Outubro de 2026</strong></div>
-              </div>
-            </div>
-
-            <button class="btn btn-ghost" style="width: 100%; margin-top: auto; justify-content: center; font-size: 0.78rem;" onclick="alert('Edição de perfil em breve!')">✏️ Editar Perfil</button>
-          </div>
-
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- POPUP FLUTUANTE DE CHAT PRIVADO -->
+  <!-- CHAT POPUP FLUTUANTE PRIVADO -->
   <div class="chat-popup-window" id="chatPopupWindow">
     <div class="chat-popup-header">
       <div style="display: flex; align-items: center; gap: 0.6rem;">
-        <div class="contact-avatar" style="width: 30px; height: 30px; font-size: 0.75rem;" id="chatPopupAvatar">M</div>
+        <div class="contact-avatar" id="chatPopupAvatar" style="width: 30px; height: 30px; font-size: 0.75rem;">M</div>
         <div>
-          <strong id="chatPopupName" style="font-size: 0.88rem; display: block;">Maria Oliveira</strong>
-          <span id="chatPopupStatus" style="font-size: 0.68rem; color: #22c55e;">Online</span>
+          <strong id="chatPopupName" style="font-size: 0.85rem; color: var(--text-main);">Nome do Autor</strong>
+          <span id="chatPopupStatus" style="font-size: 0.65rem; color: var(--text-muted); display: block;">Online</span>
         </div>
       </div>
-      <button class="close-modal-btn" style="position: static; font-size: 1.2rem;" onclick="closeChatPopup()">✕</button>
+      <button class="close-modal-btn" style="position: static; font-size: 1.2rem;" onclick="closeChatPopup()">×</button>
     </div>
 
-    <div class="chat-popup-body" id="chatPopupMessages">
-      <div class="chat-bubble other">Olá! Conseguiu avançar no manuscrito?</div>
-      <div class="chat-bubble mine">Sim! Escrevi mais mil palavras hoje.</div>
+    <div class="chat-popup-messages" id="chatPopupMessagesList">
+      <div class="chat-bubble other">
+        Olá! Seja bem-vinda ao chat privado do Atelier.
+        <span class="chat-bubble-time">10:42</span>
+      </div>
     </div>
 
-    <div class="chat-popup-footer">
-      <input type="text" class="auth-input" id="chatPopupInput" placeholder="Digite uma mensagem..." onkeypress="if(event.key==='Enter') sendChatPopupMsg()" style="font-size: 0.82rem; padding: 0.5rem 0.8rem;">
-      <button class="btn btn-primary" onclick="sendChatPopupMsg()" style="padding: 0.5rem 0.9rem; font-size: 0.8rem;">Enviar</button>
+    <div class="chat-popup-input-row">
+      <input type="text" class="auth-input" id="chatPopupInput" placeholder="Digite uma mensagem..." onkeypress="if(event.key==='Enter') sendPrivateMsg()" style="font-size: 0.82rem; padding: 0.5rem 0.8rem;">
+      <button class="btn btn-primary" onclick="sendPrivateMsg()" style="padding: 0.5rem 0.9rem; font-size: 0.8rem;">Enviar</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE PERFIL DO AUTOR -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="auth-card" style="max-width: 450px;">
+      <button class="close-modal-btn" onclick="closeProfileModal()">×</button>
+      <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.2rem;">Meu Perfil de Autor</h3>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Personalize suas informações na rede privada.</p>
+
+      <form onsubmit="saveProfileData(event)">
+        <div class="auth-field">
+          <label>Nome de Exibição</label>
+          <input type="text" class="auth-input" id="profileDisplayName" placeholder="Ex: Ariadny Lopes" required>
+        </div>
+        <div class="auth-field">
+          <label>@usuário único</label>
+          <input type="text" class="auth-input" id="profileUsername" placeholder="Ex: @ariadnylopes" required>
+        </div>
+        <div class="auth-field">
+          <label>Gêneros Literários Favoritos</label>
+          <input type="text" class="auth-input" id="profileGenres" placeholder="Ex: Romance Gótico • Fantasia">
+        </div>
+        <div class="auth-field">
+          <label>Biografia / Sobre você</label>
+          <textarea class="auth-input" id="profileBio" rows="3" placeholder="Apaixonada por histórias sombrias..." style="resize: none; font-family: inherit;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.65rem;">Salvar Perfil</button>
+      </form>
     </div>
   </div>
 
@@ -1072,11 +1008,11 @@
       <button class="close-modal-btn" style="position: static;" onclick="toggleAdaDrawer()">×</button>
     </div>
 
-    <div class="chat-messages-list" id="adaMsgList">
-      <div class="chat-bubble other">Olá! Sou a Ada, sua assistente criativa. Posso te ajudar a gerar ideias, superar bloqueios criativos, sugerir cenas, revisar textos ou construir personagens e worldbuilding. Como começamos?</div>
+    <div class="chat-messages-list" id="adaMsgList" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.8rem; margin: 1rem 0;">
+      <div class="chat-bubble other" style="background: var(--bg-card); color: var(--text-main);">Olá! Sou a Ada, sua assistente criativa. Posso te ajudar a gerar ideias, superar bloqueios criativos, sugerir cenas, revisar textos ou construir personagens e worldbuilding. Como começamos?</div>
     </div>
 
-    <div class="chat-input-row">
+    <div class="chat-input-row" style="display: flex; gap: 0.5rem;">
       <input type="text" class="auth-input" id="adaInput" placeholder="Pergunte algo à Ada..." onkeypress="if(event.key==='Enter') sendAdaMsg()">
       <button class="btn btn-primary" onclick="sendAdaMsg()">✨ Enviar</button>
     </div>
@@ -1225,11 +1161,11 @@
     };
 
     async function setupUserSession(user) {
-      document.getElementById('userAvatar').innerText = user.email ? user.email.charAt(0).toUpperCase() : 'A';
-      document.getElementById('myProfileName').innerText = user.email ? user.email.split('@')[0] : 'Autora';
-      document.getElementById('myProfileUsername').innerText = '@' + (user.email ? user.email.split('@')[0].toLowerCase() : 'autora');
-      document.getElementById('myProfileAvatar').innerText = user.email ? user.email.charAt(0).toUpperCase() : 'A';
-
+      const initial = user.email ? user.email.charAt(0).toUpperCase() : 'A';
+      document.getElementById('userAvatarpreference') = initial;
+      const avatarEl = document.getElementById('userAvatar');
+      if(avatarEl) avatarEl.innerText = initial;
+      
       window.closeAuthModal();
       window.toggleAppMode(true);
 
@@ -1279,63 +1215,38 @@
       document.getElementById('adaDrawer').classList.toggle('open');
     };
 
-    const mockAuthorsDB = [
-      { name: "Beatriz Ribeiro", username: "@beatrizribeiro", genres: "Poesia • Romances Clássicos", bio: "Escrevendo versos sobre saudades e estradas." },
-      { name: "Helena Siqueira", username: "@helenasiqueira", genres: "Ficção Científica • Distopia", bio: "Explorando futuros distópicos e inteligências artificiais." },
-      { name: "Lucas Mendes", username: "@lucasmendes", genres: "Mistério • Thriller", bio: "Viciado em plot twists e enigmas difíceis." }
-    ];
-
+    // LÓGICA DA REDE PRIVADA E COMUNIDADE DE AUTORES
     window.searchAuthors = function() {
       const query = document.getElementById('authorSearchInput').value.trim().toLowerCase();
-      const resultsBox = document.getElementById('searchResultsBox');
-      const resultsList = document.getElementById('searchResultsList');
-
-      if (query === '') {
-        resultsBox.style.display = 'none';
-        resultsList.innerHTML = '';
+      const dropdown = document.getElementById('searchResultsDropdown');
+      if (!query) {
+        dropdown.style.display = 'none';
+        dropdown.innerHTML = '';
         return;
       }
 
-      const filtered = mockAuthorsDB.filter(a => a.name.toLowerCase().includes(query) || a.username.toLowerCase().includes(query));
-      resultsList.innerHTML = '';
-
-      if (filtered.length > 0) {
-        resultsBox.style.display = 'block';
-        filtered.forEach(author => {
-          const div = document.createElement('div');
-          div.className = 'author-search-result';
-          div.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
-              <div class="contact-avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">${author.name.charAt(0)}</div>
-              <div>
-                <strong style="font-size: 0.85rem; display: block;">${author.name}</strong>
-                <span style="font-size: 0.72rem; color: var(--accent-gold);">${author.username}</span>
-              </div>
-            </div>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">${author.genres} — "${author.bio}"</p>
-            <div style="display: flex; gap: 0.5rem;">
-              <button class="btn btn-ghost" style="font-size: 0.7rem; padding: 0.25rem 0.6rem;" onclick="alert('Perfil de ${author.name}')">Ver Perfil</button>
-              <button class="btn btn-primary" style="font-size: 0.7rem; padding: 0.25rem 0.6rem;" onclick="sendContactRequest(this, '${author.name}')">+ Adicionar</button>
-            </div>
-          `;
-          resultsList.appendChild(div);
-        });
-      } else {
-        resultsBox.style.display = 'block';
-        resultsList.innerHTML = `<span style="font-size: 0.78rem; color: var(--text-muted);">Nenhum autor encontrado com este termo.</span>`;
-      }
+      // Conforme solicitado, se não houver buscas simuladas cadastradas/encontradas, não inventa dados genéricos fictícios.
+      dropdown.style.display = 'block';
+      dropdown.innerHTML = `<div style="padding: 0.8rem; font-size: 0.78rem; color: var(--text-muted); text-align: center;">Nenhum autor encontrado para "${query}"</div>`;
     };
 
-    window.sendContactRequest = function(btn, authorName) {
-      btn.innerText = "Solicitação enviada";
-      btn.disabled = true;
-      btn.style.opacity = "0.7";
-      alert(`Solicitação de amizade enviada para ${authorName}! Aguardando aceitação.`);
+    window.openProfileModal = function() {
+      document.getElementById('profileModal').classList.add('active');
     };
 
-    window.openChatPopup = function(contactName, username) {
+    window.closeProfileModal = function() {
+      document.getElementById('profileModal').classList.remove('active');
+    };
+
+    window.saveProfileData = function(event) {
+      event.preventDefault();
+      alert("Perfil de autor salvo com sucesso na rede privada!");
+      closeProfileModal();
+    };
+
+    window.openChatPopup = function(contactName) {
       document.getElementById('chatPopupName').innerText = contactName;
-      document.getElementById('chatPopupAvatar').innerText = contactName.charAt(0);
+      document.getElementById('chatPopupAvatar').innerText = contactName.charAt(0).toUpperCase();
       document.getElementById('chatPopupWindow').classList.add('active');
     };
 
@@ -1343,14 +1254,14 @@
       document.getElementById('chatPopupWindow').classList.remove('active');
     };
 
-    window.sendChatPopupMsg = function() {
+    window.sendPrivateMsg = function() {
       const input = document.getElementById('chatPopupInput');
       if (!input.value.trim()) return;
 
-      const list = document.getElementById('chatPopupMessages');
+      const list = document.getElementById('chatPopupMessagesList');
       const bubble = document.createElement('div');
       bubble.className = 'chat-bubble mine';
-      bubble.innerText = input.value;
+      bubble.innerHTML = `${input.value}<span class="chat-bubble-time">Agora</span>`;
       list.appendChild(bubble);
       input.value = '';
       list.scrollTop = list.scrollHeight;
@@ -1372,6 +1283,8 @@
       setTimeout(() => {
         const adaBubble = document.createElement('div');
         adaBubble.className = 'chat-bubble other';
+        adaBubble.style.background = 'var(--bg-card)';
+        adaBubble.style.color = 'var(--text-main)';
         adaBubble.innerText = "Excelente ponto! Para essa cena, podemos trabalhar o clima e o suspense focando na descrição do ambiente e nos dilemas da personagem.";
         list.appendChild(adaBubble);
         list.scrollTop = list.scrollHeight;
@@ -1403,56 +1316,4 @@
 
       if (input.type === 'password') {
         input.type = 'text';
-        icon.innerHTML = '<path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.44-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.17c0-1.66-1.34-3-3-3l-.17.02z"/>';
-      } else {
-        input.type = 'password';
-        icon.innerHTML = '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>';
-      }
-    };
-
-    window.switchAuthMode = function() {
-      window.isRegisterMode = !window.isRegisterMode;
-      updateModalUI();
-    };
-
-    function updateModalUI() {
-      if (window.isRegisterMode) {
-        document.getElementById('modalTitle').innerText = 'Criar sua conta';
-        document.getElementById('modalSubtitle').innerText = 'Comece sua jornada no Atelier Literário hoje mesmo.';
-        document.getElementById('modalSubmitBtn').innerText = 'Criar Conta e Entrar';
-        document.getElementById('modalToggleText').innerText = 'Já possui uma conta?';
-        document.getElementById('modalToggleLink').innerText = 'Fazer Login';
-      } else {
-        document.getElementById('modalTitle').innerText = 'Boas-vindas ao Atelier!';
-        document.getElementById('modalSubtitle').innerText = 'Acesse com sua conta do Google ou e-mail.';
-        document.getElementById('modalSubmitBtn').innerText = 'Entrar no Atelier';
-        document.getElementById('modalToggleText').innerText = 'Ainda não tem conta?';
-        document.getElementById('modalToggleLink').innerText = 'Cadastre-se grátis';
-      }
-    }
-
-    window.toggleAppMode = function(isApp) {
-      document.body.classList.toggle('app-active', isApp);
-    };
-
-    window.toggleThemeMode = function() {
-      document.body.classList.toggle('app-light-mode');
-      const isLight = document.body.classList.contains('app-light-mode');
-      const text = isLight ? '🌙 Modo Escuro' : '☀️ Modo Claro';
-      
-      document.getElementById('landingThemeToggleBtn').innerText = text;
-      document.getElementById('appThemeToggleBtn').innerText = text;
-    };
-
-    window.updateStats = function() {
-      const text = document.getElementById('bookEditorText').value;
-      const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-      document.getElementById('appWordCount').innerText = words.toLocaleString('pt-BR');
-      document.getElementById('footerWords').innerText = `${words} PALAVRAS`;
-    };
-
-    window.setLiteraryTheme('classic');
-    window.toggleAppMode(false);
-  </script>
-</body>
-</html>
+        icon.
