@@ -10,7 +10,6 @@
   
   <style>
     :root {
-      /* Estilo Padrão: Atelier Clássico */
       --primary-lilac: #8a4baf;
       --primary-hover: #753999;
       --bg-main: #141318;
@@ -27,7 +26,7 @@
       --accent-gold: #c5a059;
     }
 
-    /* ESTILO 1: Gothic Romance */
+    /* ESTILOS LITERÁRIOS */
     body.theme-gothic {
       --primary-lilac: #8b152b;
       --primary-hover: #6a0e1f;
@@ -43,7 +42,6 @@
       --font-editor: 'EB Garamond', serif;
     }
 
-    /* ESTILO 2: Romance Épico (Jane Austen) */
     body.theme-epic {
       --primary-lilac: #52796f;
       --primary-hover: #354f52;
@@ -59,7 +57,6 @@
       --font-editor: 'EB Garamond', serif;
     }
 
-    /* ESTILO 3: Poético Estelar (O Pequeno Príncipe) */
     body.theme-poetic {
       --primary-lilac: #d97706;
       --primary-hover: #b45309;
@@ -75,7 +72,6 @@
       --font-editor: 'EB Garamond', serif;
     }
 
-    /* ESTILO 4: Ficção Científica (Sci-Fi / Cyberpunk) */
     body.theme-scifi {
       --primary-lilac: #00f0ff;
       --primary-hover: #00b8c4;
@@ -92,7 +88,6 @@
       --font-editor: 'Fira Code', monospace;
     }
 
-    /* Modo Claro Global */
     body.app-light-mode {
       --bg-main: #f5f2f9;
       --bg-panel: #ffffff;
@@ -119,10 +114,10 @@
     body.app-active .view-app { display: block; }
 
     .btn {
-      padding: 0.55rem 1.3rem;
-      border-radius: 10px;
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
       font-weight: 600;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       cursor: pointer;
       border: none;
       transition: all 0.2s ease;
@@ -150,7 +145,6 @@
 
     .btn-primary:hover {
       background: var(--primary-hover);
-      transform: translateY(-1px);
     }
 
     .btn-google {
@@ -195,15 +189,15 @@
     }
 
     .brand-logo-icon {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       background: linear-gradient(135deg, var(--primary-lilac), #c084fc);
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .hero-landing {
@@ -244,69 +238,59 @@
 
     .app-topbar-left, .app-topbar-right { display: flex; align-items: center; gap: 0.8rem; }
 
+    .app-nav-tabs { display: flex; gap: 0.3rem; background: var(--bg-card); padding: 0.2rem; border-radius: 8px; border: 1px solid var(--bg-panel-border); }
+    .nav-tab-btn { background: transparent; border: none; color: var(--text-muted); padding: 0.35rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .nav-tab-btn.active { background: var(--primary-lilac); color: white; }
+
     .progress-widget { text-align: right; }
-    .progress-widget strong { font-size: 0.9rem; color: var(--text-main); }
-    .progress-widget span { font-size: 0.72rem; color: var(--text-muted); display: block; }
+    .progress-widget strong { font-size: 0.85rem; color: var(--text-main); }
+    .progress-widget span { font-size: 0.7rem; color: var(--text-muted); display: block; }
 
     .user-avatar-btn {
-      width: 34px; height: 34px; border-radius: 50%;
+      width: 32px; height: 32px; border-radius: 50%;
       background: var(--primary-lilac); color: white;
-      font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;
+      font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
     }
 
-    .book-header-section { padding: 1.2rem 1.5rem 0.5rem; }
-    .book-header-section .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary-lilac); font-weight: 700; }
-    .book-header-section h2 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-main); }
-    .book-header-section p { font-size: 0.82rem; color: var(--text-muted); }
+    .book-header-section { padding: 1rem 1.5rem 0.3rem; }
+    .book-header-section .tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary-lilac); font-weight: 700; }
+    .book-header-section h2 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--text-main); }
+    .book-header-section p { font-size: 0.8rem; color: var(--text-muted); }
 
     .app-grid {
       display: grid;
-      grid-template-columns: 250px 1fr 300px;
-      gap: 1.2rem;
-      padding: 1rem 1.5rem 1.5rem;
+      grid-template-columns: 240px 1fr 280px;
+      gap: 1rem;
+      padding: 0.8rem 1.5rem 1.5rem;
       flex: 1;
     }
 
     .panel-box {
       background: var(--bg-panel);
       border: 1px solid var(--bg-panel-border);
-      border-radius: 14px;
-      padding: 1.2rem;
+      border-radius: 12px;
+      padding: 1rem;
       position: relative;
     }
 
-    /* Selos de Cera e Renda Gótica na Barra Lateral (Gothic Theme) */
-    .wax-seals-container { display: none; margin-top: 1rem; gap: 0.8rem; justify-content: center; }
-    body.theme-gothic .wax-seals-container { display: flex; }
-    .wax-seal {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #a81c35, #5e0b1c);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.3);
-      border: 1px solid #7a1526;
-    }
-
-    .gothic-lace-bg {
-      display: none; position: absolute; bottom: 0; left: 0; width: 100%; height: 80px;
-      opacity: 0.12; pointer-events: none;
-      background-image: radial-gradient(#c5a059 1px, transparent 1px), radial-gradient(#c5a059 1px, #151115 1px);
-      background-size: 20px 20px;
-    }
-    body.theme-gothic .gothic-lace-bg { display: block; }
-
-    .struct-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); margin-bottom: 0.8rem; }
-    .struct-item-link { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.7rem; border-radius: 8px; font-size: 0.85rem; color: var(--text-main); cursor: pointer; margin-bottom: 0.3rem; }
+    .struct-title { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 700; }
+    .struct-item-link { display: flex; justify-content: space-between; align-items: center; padding: 0.45rem 0.6rem; border-radius: 6px; font-size: 0.82rem; color: var(--text-main); cursor: pointer; margin-bottom: 0.25rem; }
     .struct-item-link.active { background: var(--bg-card); border-left: 3px solid var(--primary-lilac); }
-    .badge-status { font-size: 0.65rem; text-transform: uppercase; background: rgba(138, 75, 175, 0.15); color: var(--primary-lilac); padding: 0.15rem 0.4rem; border-radius: 4px; font-weight: 600; }
+    .badge-status { font-size: 0.6rem; text-transform: uppercase; background: rgba(138, 75, 175, 0.15); color: var(--primary-lilac); padding: 0.1rem 0.35rem; border-radius: 4px; font-weight: 600; }
 
     .editor-column { display: flex; flex-direction: column; }
-    .editor-subbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+    
+    /* SUB-BARRA DO EDITOR COM CHECKBOX DE FICHAS DE PERSONAGEM */
+    .editor-subbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; gap: 0.5rem; flex-wrap: wrap; }
+    .editor-subbar-left { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .checkbox-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--text-muted); cursor: pointer; }
 
-    /* CANVAS DA FOLHA DE ESCRITA COM ELEMENTOS VETORIAIS (ORANMENTOS) */
+    /* PAPER CANVAS E BOTÕES FLUTUANTES */
     .paper-sheet-container {
       background: var(--paper-bg);
       color: var(--paper-text);
-      border-radius: 14px;
-      padding: 3rem 3.5rem;
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
       flex: 1;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       display: flex;
@@ -316,117 +300,119 @@
       overflow: hidden;
     }
 
-    /* Cantoneiras Florais Vitorianas SVG (Gothic Romance) */
-    .gothic-corner { display: none; position: absolute; width: 50px; height: 50px; pointer-events: none; opacity: 0.85; }
+    /* ORNAMENTOS SVG DOS TEMAS */
+    .gothic-corner { display: none; position: absolute; width: 45px; height: 45px; pointer-events: none; opacity: 0.85; }
     body.theme-gothic .gothic-corner { display: block; }
-    .corner-tl { top: 12px; left: 12px; }
-    .corner-tr { top: 12px; right: 12px; transform: scaleX(-1); }
-    .corner-bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
-    .corner-br { bottom: 12px; right: 12px; transform: scale(-1); }
+    .corner-tl { top: 10px; left: 10px; }
+    .corner-tr { top: 10px; right: 10px; transform: scaleX(-1); }
+    .corner-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+    .corner-br { bottom: 10px; right: 10px; transform: scale(-1); }
 
-    /* Divisores de Capítulo Ornamentados SVG */
-    .chapter-divider-svg { display: none; width: 100%; max-width: 280px; margin: 0.8rem auto; pointer-events: none; opacity: 0.8; }
+    .chapter-divider-svg { display: none; width: 100%; max-width: 260px; margin: 0.6rem auto; pointer-events: none; opacity: 0.8; }
     body.theme-gothic .chapter-divider-svg, body.theme-epic .chapter-divider-svg { display: block; }
 
-    /* Mancha de Tinta (Romance Épico) */
-    .ink-blot { display: none; position: absolute; top: 25px; right: 35px; width: 65px; opacity: 0.18; pointer-events: none; }
+    .ink-blot { display: none; position: absolute; top: 20px; right: 30px; width: 55px; opacity: 0.18; pointer-events: none; }
     body.theme-epic .ink-blot { display: block; }
 
-    /* Constelação (Poético Estelar) */
-    .stellar-constellation { display: none; position: absolute; top: 20px; right: 30px; width: 110px; opacity: 0.3; pointer-events: none; }
+    .stellar-constellation { display: none; position: absolute; top: 15px; right: 25px; width: 100px; opacity: 0.3; pointer-events: none; }
     body.theme-poetic .stellar-constellation { display: block; }
 
-    /* Cantoneiras HUD Neon (Ficção Científica) */
-    .scifi-hud-corner { display: none; position: absolute; width: 25px; height: 25px; border: 2px solid var(--primary-lilac); pointer-events: none; }
+    .scifi-hud-corner { display: none; position: absolute; width: 20px; height: 20px; border: 2px solid var(--primary-lilac); pointer-events: none; }
     body.theme-scifi .scifi-hud-corner { display: block; }
-    .hud-tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
-    .hud-tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
-    .hud-bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
-    .hud-br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+    .hud-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+    .hud-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+    .hud-bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+    .hud-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
 
-    .paper-chapter-num { text-align: center; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; margin-bottom: 0.2rem; }
-    .paper-title-field { background: transparent; border: none; outline: none; font-family: var(--font-heading); font-size: 1.8rem; text-align: center; color: var(--paper-text); width: 100%; }
-    .paper-subtitle-field { background: transparent; border: none; outline: none; font-family: var(--font-editor); font-size: 1.05rem; font-style: italic; text-align: center; opacity: 0.7; color: var(--paper-text); width: 100%; margin-top: 0.2rem; }
+    .paper-chapter-num { text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-bottom: 0.2rem; }
+    .paper-title-field { background: transparent; border: none; outline: none; font-family: var(--font-heading); font-size: 1.6rem; text-align: center; color: var(--paper-text); width: 100%; }
+    .paper-subtitle-field { background: transparent; border: none; outline: none; font-family: var(--font-editor); font-size: 1rem; font-style: italic; text-align: center; opacity: 0.6; color: var(--paper-text); width: 100%; margin-top: 0.1rem; }
 
-    .paper-format-bar { display: flex; justify-content: center; gap: 0.5rem; background: rgba(0,0,0,0.06); padding: 0.3rem 0.8rem; border-radius: 20px; margin: 1rem auto; width: fit-content; z-index: 2; }
-    .fmt-btn-item { background: transparent; border: none; width: 26px; height: 26px; border-radius: 4px; cursor: pointer; font-family: serif; font-weight: 700; color: inherit; }
+    /* FORMATAR FLUTUANTE ROUNDED BUTTONS DA REFERÊNCIA */
+    .paper-format-bar-floating { display: flex; flex-direction: column; align-items: center; margin: 1rem auto; gap: 0.3rem; z-index: 2; }
+    .fmt-buttons-row { display: flex; gap: 0.4rem; background: rgba(0,0,0,0.05); padding: 0.25rem 0.6rem; border-radius: 30px; }
+    .fmt-btn-round { background: transparent; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-size: 0.85rem; font-weight: 700; color: inherit; display: flex; align-items: center; justify-content: center; }
+    .fmt-btn-round:hover { background: rgba(0,0,0,0.1); }
+    .fmt-hint-text { font-size: 0.7rem; opacity: 0.5; text-align: center; }
 
-    /* Capitular (Drop Cap) Gótica na Folha */
-    .editor-wrapper { display: flex; flex: 1; position: relative; margin-top: 0.5rem; }
-    
-    .drop-cap-gothic {
-      display: none;
-      font-family: 'UnifrakturMaguntia', serif;
-      font-size: 3.8rem;
-      line-height: 0.8;
-      float: left;
-      margin-right: 0.6rem;
-      margin-bottom: -0.2rem;
-      color: var(--accent-gold);
-    }
-    body.theme-gothic .drop-cap-gothic { display: block; }
-
+    .editor-wrapper { display: flex; flex: 1; position: relative; margin-top: 0.3rem; }
     .paper-editor-area {
-      background: transparent; border: none; outline: none; font-family: var(--font-editor); font-size: 1.2rem; line-height: 1.8; color: var(--paper-text); resize: none; flex: 1; min-height: 350px; z-index: 2;
+      background: transparent; border: none; outline: none; font-family: var(--font-editor); font-size: 1.15rem; line-height: 1.8; color: var(--paper-text); resize: none; flex: 1; min-height: 320px; z-index: 2;
     }
 
-    .paper-status-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0.8rem; margin-top: 1.5rem; font-size: 0.78rem; opacity: 0.7; z-index: 2; }
+    .paper-status-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0.8rem; margin-top: 1.2rem; font-size: 0.75rem; opacity: 0.7; z-index: 2; }
 
+    /* PAINEL DIREITO: CONFIGURAÇÕES DO LIVRO & COMPOSIÇÃO */
     .config-card-box { margin-bottom: 1.2rem; }
-    .config-card-box h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.8rem; }
+    .config-card-box h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 700; }
 
-    .progress-bar-bg { background: var(--bg-card); height: 6px; border-radius: 10px; overflow: hidden; margin: 0.5rem 0; }
-    .progress-bar-fill { background: var(--primary-lilac); height: 100%; width: 0%; transition: width 0.3s; }
+    .config-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .config-row span { color: var(--text-muted); }
+    .config-row select, .config-row strong { color: var(--text-main); font-weight: 600; background: transparent; border: none; outline: none; text-align: right; font-size: 0.8rem; cursor: pointer; }
 
-    /* SELETOR DE ESTILO LITERÁRIO */
-    .style-options-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .comp-input-box { width: 50px; background: var(--bg-card); border: 1px solid var(--bg-panel-border); color: var(--text-main); border-radius: 4px; padding: 0.15rem 0.3rem; font-size: 0.75rem; text-align: center; }
+
+    /* SELETOR DE ESTILO LITERÁRIO DO RODAPÉ DA DIREITA */
+    .style-options-list { display: flex; flex-direction: column; gap: 0.4rem; }
     .style-option-btn {
       background: var(--bg-card);
       border: 1px solid var(--bg-panel-border);
       color: var(--text-main);
-      padding: 0.6rem 0.8rem;
-      border-radius: 10px;
-      font-size: 0.82rem;
+      padding: 0.5rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
       transition: all 0.2s ease;
-      text-align: left;
     }
     .style-option-btn:hover { border-color: var(--primary-lilac); }
     .style-option-btn.active {
       border-color: var(--primary-lilac);
-      background: rgba(138, 75, 175, 0.1);
+      background: rgba(138, 75, 175, 0.12);
       font-weight: 600;
     }
+
+    /* SEÇÕES E DRAWER */
+    .app-section-content { display: none; }
+    .app-section-content.active { display: block; }
+
+    .community-chat-container { display: grid; grid-template-columns: 260px 1fr; gap: 1rem; height: calc(100vh - 170px); margin: 1rem 1.5rem; }
+    .community-chat-box { background: var(--bg-panel); border: 1px solid var(--bg-panel-border); border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; }
+    .chat-messages-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.8rem; margin: 1rem 0; }
+    .chat-bubble { max-width: 75%; padding: 0.6rem 0.9rem; border-radius: 10px; font-size: 0.88rem; }
+    .chat-bubble.mine { background: var(--primary-lilac); color: white; align-self: flex-end; }
+    .chat-bubble.other { background: var(--bg-card); color: var(--text-main); align-self: flex-start; }
+    .chat-input-row { display: flex; gap: 0.5rem; }
+
+    .ada-drawer-panel { position: fixed; top: 0; right: -380px; width: 380px; height: 100vh; background: var(--bg-panel); border-left: 1px solid var(--bg-panel-border); box-shadow: -10px 0 30px rgba(0,0,0,0.5); z-index: 150; transition: right 0.3s ease; display: flex; flex-direction: column; padding: 1.2rem; }
+    .ada-drawer-panel.open { right: 0; }
 
     .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 200; }
     .modal-overlay.active { display: flex; }
 
-    .auth-card { background: var(--bg-panel); border: 1px solid var(--bg-panel-border); border-radius: 20px; padding: 2.5rem; width: 100%; max-width: 420px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; }
-    .auth-card h3 { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 0.4rem; }
-    .auth-card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .auth-card { background: var(--bg-panel); border: 1px solid var(--bg-panel-border); border-radius: 20px; padding: 2.2rem; width: 100%; max-width: 400px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; }
+    .auth-card h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.3rem; }
+    .auth-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem; }
 
-    .auth-field { margin-bottom: 1rem; }
-    .auth-field label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.4rem; color: var(--text-muted); }
-    .auth-input { width: 100%; padding: 0.75rem 1rem; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--bg-panel-border); color: var(--text-main); font-size: 0.95rem; outline: none; }
+    .auth-field { margin-bottom: 0.9rem; }
+    .auth-field label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.3rem; color: var(--text-muted); }
+    .auth-input { width: 100%; padding: 0.65rem 0.9rem; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--bg-panel-border); color: var(--text-main); font-size: 0.9rem; outline: none; }
     
     .password-wrapper { position: relative; display: flex; align-items: center; }
-    .password-wrapper .auth-input { padding-right: 2.8rem; }
+    .password-wrapper .auth-input { padding-right: 2.6rem; }
     
-    .toggle-password-btn {
-      position: absolute; right: 12px; background: none; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0.6; transition: opacity 0.2s;
-    }
+    .toggle-password-btn { position: absolute; right: 10px; background: none; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0.6; }
     .toggle-password-btn:hover { opacity: 1; color: var(--primary-lilac); }
-    .toggle-password-btn svg { width: 20px; height: 20px; fill: currentColor; }
+    .toggle-password-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
-    .close-modal-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
-    .divider { display: flex; align-items: center; text-align: center; color: var(--text-muted); font-size: 0.75rem; margin: 1rem 0; }
+    .close-modal-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; }
+    .divider { display: flex; align-items: center; text-align: center; color: var(--text-muted); font-size: 0.72rem; margin: 0.8rem 0; }
     .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--bg-panel-border); }
-    .divider span { padding: 0 10px; }
+    .divider span { padding: 0 8px; }
 
-    .modal-toggle-footer { text-align: center; margin-top: 1.2rem; font-size: 0.82rem; color: var(--text-muted); }
+    .modal-toggle-footer { text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); }
     .modal-toggle-footer a { color: var(--primary-lilac); font-weight: 700; text-decoration: none; margin-left: 0.3rem; }
   </style>
 </head>
@@ -438,13 +424,13 @@
       <a href="#" class="brand-logo">
         <div class="brand-logo-icon">📖</div>
         <div>
-          <h1 style="font-family: var(--font-heading); font-size: 1.25rem;">Atelier Literário</h1>
-          <span style="font-size: 0.65rem; color: #52796f; font-weight: 700; letter-spacing: 1.5px;">ADA & AUTORA</span>
+          <h1 style="font-family: var(--font-heading); font-size: 1.2rem;">Atelier Literário</h1>
+          <span style="font-size: 0.62rem; color: #52796f; font-weight: 700; letter-spacing: 1.5px;">ADA & AUTORA</span>
         </div>
       </a>
 
       <div style="display: flex; gap: 0.8rem; align-items: center;">
-        <button class="btn btn-ghost" onclick="toggleThemeMode()" id="landingThemeToggleBtn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">☀️ Modo Claro</button>
+        <button class="btn btn-ghost" onclick="toggleThemeMode()" id="landingThemeToggleBtn">☀️ Modo Claro</button>
         <button class="btn btn-ghost" onclick="openAuthModal('login')">Entrar</button>
         <button class="btn btn-primary" onclick="openAuthModal('register')">Comece Agora</button>
       </div>
@@ -453,7 +439,7 @@
     <section class="hero-landing">
       <h2>Transforme suas ideias em um <em>livro publicado.</em></h2>
       <p>Um espaço refinado e acolhedor criado para você desenvolver seus manuscritos em parceria com a assistente Ada.</p>
-      <button class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1rem;" onclick="openAuthModal('register')">Entrar no Atelier →</button>
+      <button class="btn btn-primary" style="padding: 0.8rem 2rem; font-size: 0.95rem;" onclick="openAuthModal('register')">Entrar no Atelier →</button>
     </section>
   </div>
 
@@ -462,154 +448,300 @@
     <div class="app-workspace">
       <header class="app-topbar">
         <div class="app-topbar-left">
-          <a href="#" class="brand-logo" style="margin-right: 1rem;">
-            <div class="brand-logo-icon" style="width: 32px; height: 32px; font-size: 1rem;">📖</div>
-            <span style="font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem;">Atelier Literário</span>
+          <a href="#" class="brand-logo" style="margin-right: 0.6rem;">
+            <div class="brand-logo-icon" style="width: 30px; height: 30px; font-size: 0.9rem;">📖</div>
+            <span style="font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem;">Atelier Literário</span>
           </a>
-          <button class="btn btn-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Meu livro ▾</button>
-          <button class="btn btn-ghost" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">+ Adicionar outro</button>
+
+          <div class="app-nav-tabs">
+            <button class="nav-tab-btn active" onclick="switchAppSection('book')" id="tabBtnBook">📖 Meu Livro</button>
+            <button class="nav-tab-btn" onclick="switchAppSection('community')" id="tabBtnCommunity">👥 Comunidade</button>
+            <button class="nav-tab-btn" onclick="toggleAdaDrawer()">🤖 Conversar com Ada</button>
+          </div>
         </div>
 
         <div class="app-topbar-right">
-          <button class="btn btn-ghost" onclick="toggleThemeMode()" id="appThemeToggleBtn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">☀️ Modo Claro</button>
+          <button class="btn btn-ghost" onclick="toggleThemeMode()" id="appThemeToggleBtn">☀️ Modo Claro</button>
 
           <div class="progress-widget">
             <strong><span id="appWordCount">0</span> / 80.000 palavras</strong>
             <span id="appPageCount">0% • ≈ 0 de 286 páginas</span>
           </div>
 
-          <button class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem;" onclick="saveToFirestore()">💾 Salvar</button>
+          <button class="btn btn-primary" onclick="saveToFirestore()">💾 Salvar</button>
           
           <div class="user-avatar-btn" id="userAvatar">A</div>
-          <button class="btn btn-ghost" onclick="logout()" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Sair ➔</button>
+          <button class="btn btn-ghost" onclick="logout()">Sair ➔</button>
         </div>
       </header>
 
-      <div class="book-header-section">
-        <div class="tag">FICHA DO LIVRO</div>
-        <h2 id="displayBookTitle">VINCENT VAUGH</h2>
-        <p>Giovanna Lopes • Dark Romance • 2026</p>
+      <!-- SEÇÃO 1: EDITOR DO LIVRO -->
+      <div class="app-section-content active" id="sectionBook">
+        <div class="book-header-section">
+          <div class="tag">FICHA DO LIVRO</div>
+          <h2 id="displayBookTitle">Meu Livro</h2>
+          <p>Seu nome • Romance • 2026</p>
+        </div>
+
+        <div class="app-grid">
+          <!-- BARRA LATERAL DA ESQUERDA: ESTRUTURA COMPLETA -->
+          <aside class="panel-box">
+            <div class="struct-title">Estrutura</div>
+            <div class="struct-item-link">Ficha do livro <span class="badge-status">Rascunho</span></div>
+            <div class="struct-item-link">Dedicatória <span class="badge-status">Rascunho</span></div>
+            <div class="struct-item-link">Epígrafe <span class="badge-status">Rascunho</span></div>
+            <div class="struct-item-link">Prólogo <span class="badge-status">Rascunho</span></div>
+
+            <div class="struct-title" style="margin-top: 1.2rem;">Parte I</div>
+            <div class="struct-item-link active">Cap. 1 • <span id="sidebarCapTitle">Capítulo sem título</span> <span class="badge-status" style="background: var(--primary-lilac); color: white;">Rascunho</span></div>
+
+            <button class="btn btn-ghost" style="width: 100%; margin-top: 0.5rem; justify-content: center; font-size: 0.75rem; border-style: dashed;">+ novo capítulo</button>
+            <button class="btn btn-ghost" style="width: 100%; margin-top: 0.4rem; justify-content: center; font-size: 0.75rem; border-style: dashed;">+ nova parte</button>
+
+            <div class="struct-title" style="margin-top: 1.5rem;">Encerramento</div>
+            <div class="struct-item-link">Epílogo <span class="badge-status">Rascunho</span></div>
+            <div class="struct-item-link">Agradecimentos <span class="badge-status">Rascunho</span></div>
+          </aside>
+
+          <!-- ÁREA CENTRAL DO EDITOR -->
+          <main class="editor-column">
+            <!-- SUB-BARRA COM BOTÕES DA SUA REFERÊNCIA -->
+            <div class="editor-subbar">
+              <div class="editor-subbar-left">
+                <button class="btn btn-ghost" style="background: var(--bg-card); font-weight: 700;">✏️ Escrever</button>
+                <button class="btn btn-ghost">📖 Prévia Impressa</button>
+                
+                <label class="checkbox-label" style="margin-left: 0.5rem;">
+                  <input type="checkbox"> Fichas de personagem no PDF
+                </label>
+
+                <button class="btn btn-ghost">📥 Baixar PDF</button>
+              </div>
+
+              <span style="color: var(--text-muted); font-size: 0.78rem;">14 × 21 cm · Garamond 11 pt</span>
+            </div>
+
+            <div class="paper-sheet-container" id="paperSheet">
+              <!-- ORNAMENTOS DOS TEMAS -->
+              <svg class="gothic-corner corner-tl" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
+              <svg class="gothic-corner corner-tr" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
+              <svg class="gothic-corner corner-bl" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
+              <svg class="gothic-corner corner-br" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
+
+              <svg class="ink-blot" viewBox="0 0 100 100" fill="var(--paper-text)"><circle cx="50" cy="50" r="30"/><circle cx="25" cy="35" r="8"/><circle cx="70" cy="60" r="12"/></svg>
+              <svg class="stellar-constellation" viewBox="0 0 100 100" stroke="var(--primary-lilac)" stroke-width="1.5"><circle cx="20" cy="20" r="3" fill="currentColor"/><circle cx="60" cy="30" r="2" fill="currentColor"/><circle cx="80" cy="70" r="4" fill="currentColor"/><line x1="20" y1="20" x2="60" y2="30"/><line x1="60" y1="30" x2="80" y2="70"/></svg>
+
+              <div class="scifi-hud-corner hud-tl"></div>
+              <div class="scifi-hud-corner hud-tr"></div>
+              <div class="scifi-hud-corner hud-bl"></div>
+              <div class="scifi-hud-corner hud-br"></div>
+
+              <div class="paper-chapter-num" id="paperChapterNumTag">CAPÍTULO 1</div>
+
+              <svg class="chapter-divider-svg" viewBox="0 0 300 20" fill="var(--accent-gold)">
+                <path d="M0,10 L120,10 M180,10 L300,10 M150,2 L160,10 L150,18 L140,10 Z"/>
+              </svg>
+
+              <input type="text" class="paper-title-field" placeholder="Capítulo sem título" id="bookTitleInput" oninput="syncTitles()">
+              <input type="text" class="paper-subtitle-field" placeholder="Título opcional">
+
+              <!-- BOTÕES DE FORMATAÇÃO ARREDONDADOS FLUTUANTES DA SUA FOTO -->
+              <div class="paper-format-bar-floating">
+                <div class="fmt-buttons-row">
+                  <button class="fmt-btn-round">B</button>
+                  <button class="fmt-btn-round" style="font-style: italic;">I</button>
+                  <button class="fmt-btn-round" style="text-decoration: underline;">U</button>
+                  <button class="fmt-btn-round">≡</button>
+                  <button class="fmt-btn-round">≡</button>
+                  <button class="fmt-btn-round">≡</button>
+                  <button class="fmt-btn-round">≡</button>
+                </div>
+                <span class="fmt-hint-text">Selecione um trecho para formatar só ele, ou clique sem selecionar para formatar tudo</span>
+              </div>
+
+              <div class="editor-wrapper">
+                <textarea class="paper-editor-area" id="bookEditorText" placeholder="Comece a escrever aqui..." oninput="updateStats()"></textarea>
+              </div>
+
+              <svg class="chapter-divider-svg" viewBox="0 0 300 20" fill="var(--accent-gold)" style="margin-top: 1rem;">
+                <path d="M0,10 L120,10 M180,10 L300,10 M150,2 L160,10 L150,18 L140,10 Z"/>
+              </svg>
+
+              <div class="paper-status-footer">
+                <span id="footerWords">0 PALAVRAS</span>
+                <span>Status: Rascunho ▾</span>
+              </div>
+            </div>
+          </main>
+
+          <!-- PAINEL DIREITO: CONFIGURAÇÕES COMPLETA & ESTILOS -->
+          <aside class="panel-box">
+            <div class="config-card-box">
+              <h4>Andamento</h4>
+              <div class="config-row">
+                <span>Livro inteiro</span>
+                <strong id="sideProgressText">0 / 80.000 · 0%</strong>
+              </div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="sideProgressBar" style="width: 0%;"></div></div>
+              <span style="font-size: 0.7rem; color: var(--text-muted); display: block; margin-top: 0.2rem;" id="sidePagesEstimate">≈ 0 de ≈ 286 páginas</span>
+              
+              <div class="config-row" style="margin-top: 0.6rem;">
+                <strong style="font-size: 0.78rem;">Cap. 1 · Capítulo sem título</strong>
+                <span style="width: 8px; height: 8px; background: #a855f7; border-radius: 50%;"></span>
+              </div>
+              <span style="font-size: 0.7rem; color: var(--text-muted);">Meta do livro inteiro: 80.000 palavras</span>
+            </div>
+
+            <div class="config-card-box">
+              <h4>Configurações do Livro</h4>
+              <div class="config-row">
+                <span>Formato</span>
+                <select><option>14 × 21 cm ▾</option></select>
+              </div>
+              <div class="config-row">
+                <span>Orientação</span>
+                <strong>Retrato</strong>
+              </div>
+              <div class="config-row">
+                <span>Fonte</span>
+                <select><option>Garamond ▾</option></select>
+              </div>
+              <div class="config-row">
+                <span>Tamanho</span>
+                <select><option>11 pt ▾</option></select>
+              </div>
+              <div class="config-row">
+                <span>Acabamento</span>
+                <select><option>Brochura ▾</option></select>
+              </div>
+              <div class="config-row">
+                <span>Papel</span>
+                <select><option>Pólen 80g ▾</option></select>
+              </div>
+            </div>
+
+            <div class="config-card-box">
+              <h4>Composição</h4>
+              <div class="config-row">
+                <span>Entrelinha</span>
+                <input type="text" class="comp-input-box" value="1,15">
+              </div>
+              <div class="config-row">
+                <span>Recuo</span>
+                <div><input type="text" class="comp-input-box" value="0,6"> <small>cm</small></div>
+              </div>
+              <div class="config-row">
+                <span>Margem superior</span>
+                <div><input type="text" class="comp-input-box" value="2"> <small>cm</small></div>
+              </div>
+              <div class="config-row">
+                <span>Margem inferior</span>
+                <div><input type="text" class="comp-input-box" value="2"> <small>cm</small></div>
+              </div>
+              <div class="config-row">
+                <span>Margem interna</span>
+                <div><input type="text" class="comp-input-box" value="2,2"> <small>cm</small></div>
+              </div>
+              <div class="config-row">
+                <span>Margem externa</span>
+                <div><input type="text" class="comp-input-box" value="1,8"> <small>cm</small></div>
+              </div>
+
+              <div class="config-row" style="margin-top: 0.6rem;">
+                <span>Páginas atuais</span>
+                <strong>≈ 0</strong>
+              </div>
+              <div class="config-row">
+                <span>Páginas na meta</span>
+                <strong>≈ 286</strong>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-top: 0.3rem;">Estimativa com ≈ 280 palavras por página neste formato.</span>
+            </div>
+
+            <!-- SELETOR DE ESTILO LITERÁRIO -->
+            <div class="config-card-box">
+              <h4>Estilo Literário da Autora</h4>
+              <div class="style-options-list">
+                <button class="style-option-btn active" onclick="setLiteraryTheme('classic')" id="themeBtn-classic">
+                  <span>📜 Atelier Clássico</span>
+                </button>
+                <button class="style-option-btn" onclick="setLiteraryTheme('gothic')" id="themeBtn-gothic">
+                  <span>🦇 Gothic Romance</span>
+                </button>
+                <button class="style-option-btn" onclick="setLiteraryTheme('epic')" id="themeBtn-epic">
+                  <span>🫖 Romance Épico</span>
+                </button>
+                <button class="style-option-btn" onclick="setLiteraryTheme('poetic')" id="themeBtn-poetic">
+                  <span>🌌 Poético Estelar</span>
+                </button>
+                <button class="style-option-btn" onclick="setLiteraryTheme('scifi')" id="themeBtn-scifi">
+                  <span>🚀 Ficção Científica</span>
+                </button>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
 
-      <div class="app-grid">
-        <aside class="panel-box">
-          <div class="struct-title">Estrutura</div>
-          <div class="struct-item-link">Ficha do livro <span class="badge-status">Rascunho</span></div>
-          <div class="struct-item-link">Dedicatória <span class="badge-status">Rascunho</span></div>
-          <div class="struct-item-link">Epígrafe <span class="badge-status">Rascunho</span></div>
-          <div class="struct-item-link">Prólogo <span class="badge-status">Rascunho</span></div>
-
-          <div class="struct-title" style="margin-top: 1.5rem;">Parte I</div>
-          <div class="struct-item-link active">Cap. 1 • VINCENT VAUGH <span class="badge-status" style="background: var(--primary-lilac); color: white;">Editando</span></div>
-          <div class="struct-item-link">Cap. 2 • VINCENT VAUGH <span class="badge-status">Rascunho</span></div>
-
-          <button class="btn btn-ghost" style="width: 100%; margin-top: 0.8rem; justify-content: center; font-size: 0.8rem; border-style: dashed;">+ Novo Capítulo</button>
-
-          <!-- Detalhes de Selos de Cera e Renda Gótica no Tema Gothic -->
-          <div class="wax-seals-container">
-            <div class="wax-seal"></div>
-            <div class="wax-seal"></div>
-          </div>
-          <div class="gothic-lace-bg"></div>
-        </aside>
-
-        <main class="editor-column">
-          <div class="editor-subbar">
-            <div style="display: flex; gap: 0.5rem;">
-              <button class="btn btn-ghost" style="padding: 0.35rem 0.8rem; font-size: 0.8rem; background: var(--bg-card);">✏️ Escrever</button>
-              <button class="btn btn-ghost" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">🖨️ Prévia Impressa</button>
-            </div>
-            <span style="color: var(--text-muted); font-size: 0.8rem;">14 × 21 cm • Garamond</span>
-          </div>
-
-          <div class="paper-sheet-container" id="paperSheet">
-            <!-- CANTONEIRAS VITORIANAS SVG (GOTHIC ROMANCE) -->
-            <svg class="gothic-corner corner-tl" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
-            <svg class="gothic-corner corner-tr" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
-            <svg class="gothic-corner corner-bl" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
-            <svg class="gothic-corner corner-br" viewBox="0 0 100 100" fill="var(--accent-gold)"><path d="M10,10 L90,10 L90,20 L20,20 L20,90 L10,90 Z M30,30 L70,30 L30,70 Z"/></svg>
-
-            <!-- MANCHA DE TINTA (ROMANCE ÉPICO) -->
-            <svg class="ink-blot" viewBox="0 0 100 100" fill="var(--paper-text)"><circle cx="50" cy="50" r="30"/><circle cx="25" cy="35" r="8"/><circle cx="70" cy="60" r="12"/></svg>
-
-            <!-- CONSTELAÇÃO (POÉTICO ESTELAR) -->
-            <svg class="stellar-constellation" viewBox="0 0 100 100" stroke="var(--primary-lilac)" stroke-width="1.5"><circle cx="20" cy="20" r="3" fill="currentColor"/><circle cx="60" cy="30" r="2" fill="currentColor"/><circle cx="80" cy="70" r="4" fill="currentColor"/><line x1="20" y1="20" x2="60" y2="30"/><line x1="60" y1="30" x2="80" y2="70"/></svg>
-
-            <!-- CANTONEIRAS HUD NEON (SCI-FI) -->
-            <div class="scifi-hud-corner hud-tl"></div>
-            <div class="scifi-hud-corner hud-tr"></div>
-            <div class="scifi-hud-corner hud-bl"></div>
-            <div class="scifi-hud-corner hud-br"></div>
-
-            <div class="paper-chapter-num">CAPÍTULO 1 • GOTHIC ROMANCE</div>
-
-            <!-- DIVISOR ORNAMENTADO NO TOPO -->
-            <svg class="chapter-divider-svg" viewBox="0 0 300 20" fill="var(--accent-gold)">
-              <path d="M0,10 L120,10 M180,10 L300,10 M150,2 L160,10 L150,18 L140,10 Z"/>
-            </svg>
-
-            <input type="text" class="paper-title-field" value="VINCENT VAUGH" id="bookTitleInput">
-            <input type="text" class="paper-subtitle-field" value="O Início da Escuridão">
-
-            <div class="paper-format-bar">
-              <button class="fmt-btn-item">B</button>
-              <button class="fmt-btn-item" style="font-style: italic;">I</button>
-              <button class="fmt-btn-item" style="text-decoration: underline;">U</button>
-            </div>
-
-            <div class="editor-wrapper">
-              <span class="drop-cap-gothic">A</span>
-              <textarea class="paper-editor-area" id="bookEditorText" placeholder="Comece a escrever a sua história aqui..." oninput="updateStats()">A chuva batia incansavelmente contra os vidros da mansão Salvatore. Vincent ajustou o anel de brasão em seu indicador direito, sentindo o peso das decisões que precisaria tomar antes da alvorada.
-
-Giovanna observava da penumbra da biblioteca. Há algo no silêncio de Vincent que prenunciava a tempestade perfeita...</textarea>
-            </div>
-
-            <!-- DIVISOR ORNAMENTADO NO RODAPÉ -->
-            <svg class="chapter-divider-svg" viewBox="0 0 300 20" fill="var(--accent-gold)" style="margin-top: 1rem;">
-              <path d="M0,10 L120,10 M180,10 L300,10 M150,2 L160,10 L150,18 L140,10 Z"/>
-            </svg>
-
-            <div class="paper-status-footer">
-              <span id="footerWords">42 PALAVRAS</span>
-              <span>Status: Rascunho ▾</span>
+      <!-- SEÇÃO 2: COMUNIDADE DE AUTORES -->
+      <div class="app-section-content" id="sectionCommunity">
+        <div class="community-chat-container">
+          <div class="community-chat-box">
+            <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.8rem;">Autores na Rede</h4>
+            <input type="text" class="auth-input" placeholder="🔍 Buscar @usuario..." style="margin-bottom: 0.8rem; font-size: 0.8rem;">
+            <div style="display: flex; flex-direction: column; gap: 0.4rem; overflow-y: auto;">
+              <div class="struct-item-link active">
+                <div>
+                  <strong>Maxls</strong> <br>
+                  <span style="font-size: 0.7rem; color: var(--text-muted);">@maxsteel</span>
+                </div>
+                <span style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%;"></span>
+              </div>
             </div>
           </div>
-        </main>
 
-        <aside class="panel-box">
-          <div class="config-card-box">
-            <h4>Andamento</h4>
-            <div style="display: flex; justify-content: space-between; font-size: 0.82rem;">
-              <strong>Livro inteiro</strong>
-              <span style="color: var(--primary-lilac);" id="sideProgressText">42 / 80.000 • 1%</span>
+          <div class="community-chat-box">
+            <div style="border-bottom: 1px solid var(--bg-panel-border); padding-bottom: 0.6rem; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="font-size: 1rem;">Maxls</strong>
+                <span style="font-size: 0.72rem; color: var(--text-muted); display: block;">Escrevendo 1 livro · Online</span>
+              </div>
+              <span class="badge-status">Chat Sem Censura</span>
             </div>
-            <div class="progress-bar-bg"><div class="progress-bar-fill" id="sideProgressBar" style="width: 1%;"></div></div>
-            <span style="font-size: 0.72rem; color: var(--text-muted);" id="sidePagesEstimate">≈ 1 de ≈ 286 páginas</span>
-          </div>
 
-          <!-- SELETOR DE ESTILO LITERÁRIO DA AUTORA -->
-          <div class="config-card-box">
-            <h4>ESTILO LITERÁRIO DA AUTORA</h4>
-            <div class="style-options-list">
-              <button class="style-option-btn" onclick="setLiteraryTheme('classic')" id="themeBtn-classic">
-                <span>📜 Atelier Clássico</span>
-              </button>
-              <button class="style-option-btn active" onclick="setLiteraryTheme('gothic')" id="themeBtn-gothic">
-                <span>🦇 Gothic Romance</span>
-              </button>
-              <button class="style-option-btn" onclick="setLiteraryTheme('epic')" id="themeBtn-epic">
-                <span>🫖 Romance Épico</span>
-              </button>
-              <button class="style-option-btn" onclick="setLiteraryTheme('poetic')" id="themeBtn-poetic">
-                <span>🌌 Poético Estelar</span>
-              </button>
-              <button class="style-option-btn" onclick="setLiteraryTheme('scifi')" id="themeBtn-scifi">
-                <span>🚀 Ficção Científica</span>
-              </button>
+            <div class="chat-messages-list" id="chatMsgList">
+              <div class="chat-bubble other">Oi! Conseguiu finalizar aquele capítulo?</div>
+              <div class="chat-bubble mine">Tô organizando a cena no editor novo do Atelier!</div>
+            </div>
+
+            <div class="chat-input-row">
+              <input type="text" class="auth-input" id="communityMsgInput" placeholder="Escreva uma mensagem..." onkeypress="if(event.key==='Enter') sendCommunityMsg()">
+              <button class="btn btn-primary" onclick="sendCommunityMsg()">Enviar</button>
             </div>
           </div>
-        </aside>
+        </div>
       </div>
+
+    </div>
+  </div>
+
+  <!-- DRAWER ASSISTENTE ADA (IA) -->
+  <div class="ada-drawer-panel" id="adaDrawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bg-panel-border); padding-bottom: 0.6rem;">
+      <div>
+        <h3 style="font-family: var(--font-heading); font-size: 1rem;">Ada (IA Assistente)</h3>
+        <span style="font-size: 0.7rem; color: var(--text-muted);">Sua parceira de escrita</span>
+      </div>
+      <button class="close-modal-btn" style="position: static;" onclick="toggleAdaDrawer()">×</button>
+    </div>
+
+    <div class="chat-messages-list" id="adaMsgList">
+      <div class="chat-bubble other">Olá! Sou a Ada, sua assistente criativa. Em que posso ajudar no seu capítulo hoje?</div>
+    </div>
+
+    <div class="chat-input-row">
+      <input type="text" class="auth-input" id="adaInput" placeholder="Pergunte algo à Ada..." onkeypress="if(event.key==='Enter') sendAdaMsg()">
+      <button class="btn btn-primary" onclick="sendAdaMsg()">✨ Enviar</button>
     </div>
   </div>
 
@@ -645,7 +777,7 @@ Giovanna observava da penumbra da biblioteca. Há algo no silêncio de Vincent q
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem;" id="modalSubmitBtn">Entrar no Atelier</button>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem;" id="modalSubmitBtn">Entrar no Atelier</button>
       </form>
 
       <div class="modal-toggle-footer">
@@ -676,7 +808,6 @@ Giovanna observava da penumbra da biblioteca. Há algo no silêncio de Vincent q
     const db = getFirestore(app);
     let currentUser = null;
 
-    // GARANTE QUE A LANDING PAGE É MOSTRADA PRIMEIRO AO RECARREGAR
     onAuthStateChanged(auth, (user) => {
       if (user) {
         currentUser = user;
@@ -724,129 +855,4 @@ Giovanna observava da penumbra da biblioteca. Há algo no silêncio de Vincent q
 
     window.saveToFirestore = async function() {
       if (!currentUser) {
-        alert("Sua sessão expirou. Faça login novamente para salvar.");
-        return;
-      }
-      const text = document.getElementById('bookEditorText').value;
-      const title = document.getElementById('bookTitleInput').value;
-
-      try {
-        await setDoc(doc(db, "manuscritos", currentUser.uid), {
-          titulo: title,
-          conteudo: text,
-          atualizadoEm: new Date()
-        });
-        alert("Rascunho salvo com segurança na sua conta!");
-      } catch (e) {
-        alert("Erro ao salvar: " + e.message);
-      }
-    };
-
-    async function setupUserSession(user) {
-      document.getElementById('userAvatar').innerText = user.email ? user.email.charAt(0).toUpperCase() : 'A';
-      window.closeAuthModal();
-      window.toggleAppMode(true);
-
-      try {
-        const docRef = doc(db, "manuscritos", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          document.getElementById('bookEditorText').value = data.conteudo || '';
-          document.getElementById('bookTitleInput').value = data.titulo || 'VINCENT VAUGH';
-          window.updateStats();
-        }
-      } catch(e) {
-        console.log("Nenhum rascunho anterior encontrado.");
-      }
-    }
-  </script>
-
-  <script>
-    window.isRegisterMode = false;
-
-    // Aplica o Estilo Literário da Autora
-    window.setLiteraryTheme = function(themeName) {
-      document.body.classList.remove('theme-gothic', 'theme-epic', 'theme-poetic', 'theme-scifi');
-      document.querySelectorAll('.style-option-btn').forEach(btn => btn.classList.remove('active'));
-
-      if (themeName !== 'classic') {
-        document.body.classList.add('theme-' + themeName);
-      }
-      
-      const activeBtn = document.getElementById('themeBtn-' + themeName);
-      if (activeBtn) activeBtn.classList.add('active');
-    };
-
-    window.togglePasswordVisibility = function() {
-      const input = document.getElementById('authPassword');
-      const icon = document.getElementById('eyeSvgIcon');
-
-      if (input.type === 'password') {
-        input.type = 'text';
-        icon.innerHTML = '<path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.44-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.17c0-1.66-1.34-3-3-3l-.17.02z"/>';
-      } else {
-        input.type = 'password';
-        icon.innerHTML = '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>';
-      }
-    };
-
-    window.toggleAppMode = function(isApp) {
-      document.body.classList.toggle('app-active', isApp);
-    };
-
-    window.toggleThemeMode = function() {
-      document.body.classList.toggle('app-light-mode');
-      const isLight = document.body.classList.contains('app-light-mode');
-      const text = isLight ? '🌙 Modo Escuro' : '☀️ Modo Claro';
-      
-      document.getElementById('landingThemeToggleBtn').innerText = text;
-      document.getElementById('appThemeToggleBtn').innerText = text;
-    };
-
-    window.openAuthModal = function(mode) {
-      window.isRegisterMode = (mode === 'register');
-      updateModalUI();
-      document.getElementById('authModal').classList.add('active');
-    };
-
-    window.closeAuthModal = function() {
-      document.getElementById('authModal').classList.remove('active');
-      document.getElementById('authEmail').value = '';
-      document.getElementById('authPassword').value = '';
-    };
-
-    window.switchAuthMode = function() {
-      window.isRegisterMode = !window.isRegisterMode;
-      updateModalUI();
-    };
-
-    function updateModalUI() {
-      if (window.isRegisterMode) {
-        document.getElementById('modalTitle').innerText = 'Criar sua conta';
-        document.getElementById('modalSubtitle').innerText = 'Comece sua jornada no Atelier Literário hoje mesmo.';
-        document.getElementById('modalSubmitBtn').innerText = 'Criar Conta e Entrar';
-        document.getElementById('modalToggleText').innerText = 'Já possui uma conta?';
-        document.getElementById('modalToggleLink').innerText = 'Fazer Login';
-      } else {
-        document.getElementById('modalTitle').innerText = 'Boas-vindas ao Atelier!';
-        document.getElementById('modalSubtitle').innerText = 'Acesse com sua conta do Google ou e-mail.';
-        document.getElementById('modalSubmitBtn').innerText = 'Entrar no Atelier';
-        document.getElementById('modalToggleText').innerText = 'Ainda não tem conta?';
-        document.getElementById('modalToggleLink').innerText = 'Cadastre-se grátis';
-      }
-    }
-
-    window.updateStats = function() {
-      const text = document.getElementById('bookEditorText').value;
-      const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-      document.getElementById('appWordCount').innerText = words.toLocaleString('pt-BR');
-      document.getElementById('footerWords').innerText = `${words} PALAVRAS`;
-    };
-
-    // Inicializa no estilo Gothic Romance por padrão
-    window.setLiteraryTheme('gothic');
-    window.toggleAppMode(false);
-  </script>
-</body>
-</html>
+        alert
